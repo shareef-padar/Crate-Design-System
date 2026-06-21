@@ -1,0 +1,67 @@
+.banner {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  inline-size: 100%;
+  padding: 0.75rem 1rem;
+  font-family: var(--crate-font-family-body);
+  font-size: var(--crate-font-size-body-sm);
+  border-block-end: 1px solid transparent;
+}
+
+.icon {
+  flex-shrink: 0;
+  inline-size: 1.25rem;
+  block-size: 1.25rem;
+}
+
+.message {
+  flex: 1;
+  min-inline-size: 0;
+  color: var(--crate-color-text-primary);
+}
+
+.action {
+  flex-shrink: 0;
+}
+
+.close {
+  flex-shrink: 0;
+  margin-inline-end: -0.375rem;
+}
+
+.info {
+  background-color: var(--crate-color-info-subtle);
+  border-block-end-color: var(--crate-color-info-border);
+}
+
+.info .icon {
+  color: var(--crate-color-info);
+}
+
+.success {
+  background-color: var(--crate-color-success-subtle);
+  border-block-end-color: var(--crate-color-success-border);
+}
+
+.success .icon {
+  color: var(--crate-color-success);
+}
+
+.warning {
+  background-color: var(--crate-color-warning-subtle);
+  border-block-end-color: var(--crate-color-warning-border);
+}
+
+.warning .icon {
+  color: var(--crate-color-warning);
+}
+
+.danger {
+  background-color: var(--crate-color-danger-subtle);
+  border-block-end-color: var(--crate-color-danger-border);
+}
+
+.danger .icon {
+  color: var(--crate-color-danger);
+}

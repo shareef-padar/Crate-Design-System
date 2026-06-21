@@ -1,0 +1,60 @@
+.cta {
+  display: flex;
+  gap: 0.625rem;
+}
+
+.stack {
+  flex-direction: column;
+}
+
+.action {
+  display: inline-flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-block-size: var(--crate-size-touch-min);
+  padding-inline: var(--crate-control-inset-lg);
+  font-family: var(--crate-font-family-heading);
+  font-weight: var(--crate-font-weight-semibold);
+  font-size: var(--crate-font-size-body);
+  text-decoration: none;
+  border: 1px solid transparent;
+  border-radius: var(--crate-radius-md);
+  transition: background-color 0.15s ease;
+}
+
+.action:focus-visible {
+  outline: 2px solid var(--crate-color-focus-ring);
+  outline-offset: 2px;
+}
+
+.icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  inline-size: 1.25em;
+  block-size: 1.25em;
+}
+
+.icon svg {
+  inline-size: 100%;
+  block-size: 100%;
+}
+
+.call {
+  background-color: var(--crate-color-action);
+  color: var(--crate-color-text-on-action);
+}
+
+.call:hover {
+  background-color: var(--crate-color-action-hover);
+}
+
+.whatsapp {
+  background-color: var(--crate-color-success);
+  color: var(--crate-color-text-on-action);
+}
+
+.whatsapp:hover {
+  background-color: var(--crate-green-700);
+}

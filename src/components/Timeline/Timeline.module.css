@@ -1,0 +1,89 @@
+.timeline {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.item {
+  position: relative;
+  padding-inline-start: 1.5rem;
+  padding-block-end: 1.25rem;
+}
+
+/* The connecting line runs through the dots. */
+.item::before {
+  content: "";
+  position: absolute;
+  inset-block: 0.35rem 0;
+  inset-inline-start: 0.3125rem;
+  inline-size: 1px;
+  background-color: var(--crate-color-border);
+}
+
+.item:last-child {
+  padding-block-end: 0;
+}
+
+.item:last-child::before {
+  display: none;
+}
+
+.dot {
+  position: absolute;
+  inset-block-start: 0.35rem;
+  inset-inline-start: 0;
+  inline-size: 0.6875rem;
+  block-size: 0.6875rem;
+  border-radius: var(--crate-radius-full);
+  background-color: var(--crate-color-surface);
+  border: 2px solid var(--crate-color-border-strong);
+}
+
+.success {
+  border-color: var(--crate-color-success);
+  background-color: var(--crate-color-success);
+}
+
+.warning {
+  border-color: var(--crate-color-warning);
+  background-color: var(--crate-color-warning);
+}
+
+.danger {
+  border-color: var(--crate-color-danger);
+  background-color: var(--crate-color-danger);
+}
+
+.info {
+  border-color: var(--crate-color-info);
+  background-color: var(--crate-color-info);
+}
+
+.header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.title {
+  font-family: var(--crate-font-family-heading);
+  font-weight: var(--crate-font-weight-medium);
+  font-size: var(--crate-font-size-body);
+  color: var(--crate-color-text-primary);
+}
+
+.time {
+  flex-shrink: 0;
+  font-family: var(--crate-font-family-body);
+  font-size: var(--crate-font-size-body-sm);
+  color: var(--crate-color-text-muted);
+}
+
+.description {
+  margin-block-start: 0.125rem;
+  font-family: var(--crate-font-family-body);
+  font-size: var(--crate-font-size-body-sm);
+  line-height: var(--crate-line-height-body-sm);
+  color: var(--crate-color-text-secondary);
+}

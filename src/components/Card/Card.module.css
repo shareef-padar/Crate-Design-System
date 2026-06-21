@@ -1,0 +1,34 @@
+.card {
+  background-color: var(--crate-color-surface);
+  border: 1px solid var(--crate-color-border);
+  border-radius: var(--crate-radius-lg);
+}
+
+.elevNone {
+  box-shadow: none;
+}
+
+.elevSm {
+  box-shadow: var(--crate-shadow-sm);
+}
+
+.elevMd {
+  box-shadow: var(--crate-shadow-md);
+}
+
+.interactive {
+  cursor: pointer;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.interactive:hover {
+  border-color: var(--crate-color-border-strong);
+  box-shadow: var(--crate-shadow-sm);
+}
+
+.interactive:focus-visible {
+  outline: 2px solid var(--crate-color-focus-ring);
+  outline-offset: 2px;
+}

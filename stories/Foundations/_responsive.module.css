@@ -1,0 +1,53 @@
+/* Container-query demo: this card restyles based on the width of its OWN container. */
+.cqWrap {
+  container-type: inline-size;
+}
+
+.cqCard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--crate-space-3);
+  padding: var(--crate-card-padding);
+  background: var(--crate-color-surface);
+  border: 1px solid var(--crate-color-border);
+  border-radius: var(--crate-radius-md);
+}
+
+.cqThumb {
+  block-size: 7rem;
+  border-radius: var(--crate-radius-sm);
+  background: var(--crate-color-action-subtle);
+}
+
+@container (min-width: 26rem) {
+  .cqCard {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .cqThumb {
+    inline-size: 11rem;
+    block-size: 6rem;
+    flex-shrink: 0;
+  }
+}
+
+/* Density demo: a faux control + card reading the density-aware component tokens. */
+.control {
+  display: inline-flex;
+  align-items: center;
+  block-size: var(--crate-control-height-md);
+  padding-inline: var(--crate-control-inset-md);
+  border: 1px solid var(--crate-color-border);
+  border-radius: var(--crate-radius-md);
+  background: var(--crate-color-surface);
+  color: var(--crate-color-text-secondary);
+  font-family: var(--crate-font-family-body);
+}
+
+.densityCard {
+  padding: var(--crate-card-padding);
+  border: 1px solid var(--crate-color-border);
+  border-radius: var(--crate-radius-md);
+  background: var(--crate-color-surface);
+}

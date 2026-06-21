@@ -1,0 +1,32 @@
+.bar {
+  display: grid;
+  gap: var(--crate-space-3);
+  align-items: end;
+  grid-template-columns: 1fr;
+  padding: var(--crate-card-padding);
+  background-color: var(--crate-color-surface);
+  border: 1px solid var(--crate-color-border);
+  border-radius: var(--crate-radius-lg);
+}
+
+/* The submit cell stretches its button full width on mobile. */
+.submit {
+  inline-size: 100%;
+}
+
+@media (width >= 640px) {
+  .bar {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (width >= 1024px) {
+  .bar {
+    grid-template-columns: 1.5fr 1fr 1fr 1fr auto;
+  }
+
+  .submit {
+    inline-size: auto;
+    min-inline-size: 8rem;
+  }
+}

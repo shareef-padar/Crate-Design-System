@@ -1,0 +1,26 @@
+.wrap {
+  position: relative;
+  display: block;
+  inline-size: 100%;
+}
+
+.select {
+  appearance: none;
+  padding-inline-end: 2.25rem;
+  cursor: pointer;
+}
+
+.chevron {
+  position: absolute;
+  inset-block: 0;
+  inset-inline-end: 0.75rem;
+  display: flex;
+  align-items: center;
+  color: var(--crate-color-text-secondary);
+  pointer-events: none;
+}
+
+.chevron svg {
+  inline-size: 1rem;
+  block-size: 1rem;
+}

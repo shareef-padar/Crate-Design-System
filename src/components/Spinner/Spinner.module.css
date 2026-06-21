@@ -1,0 +1,27 @@
+.spinner {
+  display: inline-block;
+  inline-size: var(--spinner-size, 1.25rem);
+  block-size: var(--spinner-size, 1.25rem);
+  border: 2px solid var(--crate-color-action-subtle);
+  border-block-start-color: var(--crate-color-action);
+  border-radius: var(--crate-radius-full);
+  animation: crate-spin 0.6s linear infinite;
+}
+
+.inherit {
+  border-color: currentcolor;
+  border-block-start-color: transparent;
+  opacity: 0.6;
+}
+
+@keyframes crate-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spinner {
+    animation-duration: 1.5s;
+  }
+}

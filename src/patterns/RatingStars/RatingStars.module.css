@@ -1,0 +1,79 @@
+.rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-size: 1rem;
+}
+
+.sm {
+  font-size: 0.875rem;
+}
+
+.starWrap {
+  position: relative;
+  display: inline-flex;
+}
+
+.track {
+  display: inline-flex;
+  color: var(--crate-color-border-strong);
+}
+
+.fill {
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  display: inline-flex;
+  overflow: hidden;
+  color: var(--crate-color-warning);
+}
+
+.star {
+  display: inline-flex;
+}
+
+.star svg {
+  inline-size: 1em;
+  block-size: 1em;
+}
+
+.compactStar {
+  color: var(--crate-color-warning);
+  font-size: 1.125em;
+}
+
+.value {
+  font-family: var(--crate-font-family-heading);
+  font-weight: var(--crate-font-weight-semibold);
+  font-size: var(--crate-font-size-body-sm);
+  color: var(--crate-color-text-primary);
+}
+
+.count {
+  font-family: var(--crate-font-family-body);
+  font-weight: var(--crate-font-weight-regular);
+  color: var(--crate-color-text-muted);
+}
+
+/* Interactive (input) mode */
+.starButton {
+  display: inline-flex;
+  padding: 0.125rem;
+  font-size: 1.25rem;
+  color: var(--crate-color-border-strong);
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.12s ease;
+}
+
+.starButton:focus-visible {
+  outline: 2px solid var(--crate-color-focus-ring);
+  outline-offset: 2px;
+  border-radius: var(--crate-radius-sm);
+}
+
+.starOn {
+  color: var(--crate-color-warning);
+}
+

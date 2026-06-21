@@ -1,0 +1,33 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3125rem;
+  padding-block: 0.1875rem;
+  padding-inline: 0.5rem;
+  font-family: var(--crate-font-family-heading);
+  font-weight: var(--crate-font-weight-medium);
+  font-size: var(--crate-font-size-body-sm);
+  border-radius: var(--crate-radius-sm);
+  white-space: nowrap;
+}
+
+.icon {
+  flex-shrink: 0;
+  inline-size: 0.875rem;
+  block-size: 0.875rem;
+}
+
+.verified {
+  background-color: var(--crate-color-success-subtle);
+  color: var(--crate-color-success-text);
+}
+
+.insured {
+  background-color: var(--crate-color-info-subtle);
+  color: var(--crate-color-info-text);
+}
+
+.topRated {
+  background-color: var(--crate-color-action-subtle);
+  color: var(--crate-color-text-link);
+}

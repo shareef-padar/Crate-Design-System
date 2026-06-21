@@ -1,0 +1,7 @@
+.box {
+  box-sizing: border-box;
+}
+
+.bordered {
+  border: 1px solid var(--crate-color-border);
+}

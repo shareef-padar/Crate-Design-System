@@ -1,0 +1,55 @@
+/* Shared base for text-like controls (Input, Textarea, Select). Imported by each. */
+.control {
+  inline-size: 100%;
+  font-family: var(--crate-font-family-body);
+  font-size: var(--crate-font-size-body); /* 16px floor — never smaller for inputs */
+  color: var(--crate-color-text-primary);
+  background-color: var(--crate-color-surface);
+  border: 1px solid var(--crate-color-border);
+  border-radius: var(--crate-radius-md);
+  padding-inline: var(--crate-control-inset-md);
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.control::placeholder {
+  color: var(--crate-color-text-muted);
+}
+
+.control:hover:not(:disabled) {
+  border-color: var(--crate-color-border-strong);
+}
+
+.control:focus {
+  outline: none;
+  border-color: var(--crate-color-focus-ring);
+  box-shadow: 0 0 0 3px var(--crate-color-focus-ring-subtle);
+}
+
+.control:disabled {
+  background-color: var(--crate-color-surface-sunken);
+  color: var(--crate-color-text-disabled);
+  cursor: not-allowed;
+}
+
+.control[aria-invalid="true"] {
+  border-color: var(--crate-color-danger);
+}
+
+.control[aria-invalid="true"]:focus {
+  box-shadow: 0 0 0 3px var(--crate-color-danger-subtle);
+}
+
+/* Single-line control heights — density-aware. */
+.sm {
+  block-size: var(--crate-control-height-sm);
+}
+
+.md {
+  block-size: var(--crate-control-height-md);
+}
+
+.lg {
+  block-size: var(--crate-control-height-lg);
+}

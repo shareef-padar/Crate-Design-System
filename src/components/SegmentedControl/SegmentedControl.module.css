@@ -1,0 +1,43 @@
+.track {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.25rem;
+  background-color: var(--crate-color-surface-sunken);
+  border-radius: var(--crate-radius-full);
+}
+
+.option {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-block-size: 2.5rem;
+  padding-inline: 1.25rem;
+  font-family: var(--crate-font-family-heading);
+  font-weight: 600;
+  font-size: var(--crate-font-size-body);
+  color: var(--crate-color-text-muted);
+  background-color: transparent;
+  border: none;
+  border-radius: calc(var(--crate-radius-full) - 0.25rem);
+  cursor: pointer;
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.option:hover:not(.selected) {
+  color: var(--crate-color-text-secondary);
+}
+
+.option:focus-visible {
+  outline: 2px solid var(--crate-color-focus-ring);
+  outline-offset: 2px;
+}
+
+.selected {
+  color: var(--crate-color-text-primary);
+  background-color: var(--crate-color-surface);
+  box-shadow: var(--crate-shadow-sm);
+}

@@ -1,0 +1,59 @@
+{
+  "color": {
+    "$type": "color",
+
+    "bg": { "$value": "{text.900}" },
+    "surface": { "$value": "{text.800}" },
+    "surface-raised": { "$value": "{text.700}" },
+    "surface-sunken": { "$value": "{text.900}" },
+    "surface-hover": { "$value": "{text.700}" },
+
+    "border": { "$value": "{text.700}" },
+    "border-strong": { "$value": "{text.600}" },
+    "overlay": { "$value": "#000000B3" },
+
+    "text-primary": { "$value": "{text.25}" },
+    "text-secondary": { "$value": "{text.200}" },
+    "text-muted": { "$value": "{text.400}" },
+    "text-disabled": { "$value": "{text.600}" },
+    "text-on-action": { "$value": "{text.900}" },
+    "text-link": { "$value": "{primary.300}" },
+
+    "action": { "$value": "{primary.400}" },
+    "action-hover": { "$value": "{primary.300}" },
+    "action-pressed": { "$value": "{primary.200}" },
+    "action-subtle": { "$value": "{primary.900}" },
+    "action-subtle-hover": { "$value": "{primary.800}" },
+    "action-border": { "$value": "{primary.400}" },
+
+    "accent-secondary": { "$value": "{secondary.400}" },
+    "accent-secondary-subtle": { "$value": "{secondary.900}" },
+
+    "focus-ring": { "$value": "{text.200}" },
+    "focus-ring-subtle": { "$value": "{text.700}" },
+
+    "selected": { "$value": "{text.100}" },
+    "selected-subtle": { "$value": "{text.800}" },
+
+    "danger": { "$value": "{red.400}" },
+    "danger-hover": { "$value": "{red.300}" },
+    "danger-subtle": { "$value": "{red.900}" },
+    "danger-text": { "$value": "{red.300}" },
+    "danger-border": { "$value": "{red.700}" },
+
+    "success": { "$value": "{green.400}" },
+    "success-subtle": { "$value": "{green.900}" },
+    "success-text": { "$value": "{green.300}" },
+    "success-border": { "$value": "{green.700}" },
+
+    "warning": { "$value": "{orange.400}" },
+    "warning-subtle": { "$value": "{orange.900}" },
+    "warning-text": { "$value": "{orange.300}" },
+    "warning-border": { "$value": "{orange.700}" },
+
+    "info": { "$value": "{blue.400}" },
+    "info-subtle": { "$value": "{blue.900}" },
+    "info-text": { "$value": "{blue.300}" },
+    "info-border": { "$value": "{blue.700}" }
+  }
+}

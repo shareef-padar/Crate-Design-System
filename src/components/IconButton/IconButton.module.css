@@ -1,0 +1,86 @@
+.iconButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  padding: 0;
+  border: 1px solid transparent;
+  border-radius: var(--crate-radius-md);
+  cursor: pointer;
+  color: var(--crate-color-text-primary);
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.iconButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.icon {
+  display: inline-flex;
+  inline-size: 1.25em;
+  block-size: 1.25em;
+}
+
+.icon svg {
+  inline-size: 100%;
+  block-size: 100%;
+}
+
+.sm {
+  inline-size: var(--crate-control-height-sm);
+  block-size: var(--crate-control-height-sm);
+  font-size: var(--crate-font-size-body-sm);
+}
+
+.md {
+  inline-size: var(--crate-control-height-md);
+  block-size: var(--crate-control-height-md);
+  font-size: var(--crate-font-size-body);
+}
+
+.lg {
+  inline-size: var(--crate-control-height-lg);
+  block-size: var(--crate-control-height-lg);
+  font-size: var(--crate-font-size-body-lg);
+}
+
+.primary {
+  background-color: var(--crate-color-action);
+  color: var(--crate-color-text-on-action);
+}
+
+.primary:hover:not(:disabled) {
+  background-color: var(--crate-color-action-hover);
+}
+
+.secondary {
+  background-color: var(--crate-color-surface);
+  border-color: var(--crate-color-border-strong);
+}
+
+.secondary:hover:not(:disabled) {
+  background-color: var(--crate-color-surface-hover);
+}
+
+.ghost {
+  background-color: transparent;
+  color: var(--crate-color-text-secondary);
+}
+
+.ghost:hover:not(:disabled) {
+  background-color: var(--crate-color-action-subtle);
+  color: var(--crate-color-action);
+}
+
+.danger {
+  background-color: var(--crate-color-danger);
+  color: var(--crate-color-text-on-action);
+}
+
+.danger:hover:not(:disabled) {
+  background-color: var(--crate-color-danger-hover);
+}

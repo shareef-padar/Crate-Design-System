@@ -1,0 +1,39 @@
+.track {
+  inline-size: 100%;
+  block-size: 0.5rem;
+  overflow: hidden;
+  background-color: var(--crate-color-surface-sunken);
+  border-radius: var(--crate-radius-full);
+}
+
+.sm {
+  block-size: 0.25rem;
+}
+
+.fill {
+  block-size: 100%;
+  background-color: var(--crate-color-action);
+  border-radius: var(--crate-radius-full);
+  transition: inline-size 0.3s ease;
+}
+
+.indeterminate {
+  inline-size: 40%;
+  animation: crate-progress 1.2s ease-in-out infinite;
+}
+
+@keyframes crate-progress {
+  0% {
+    margin-inline-start: -40%;
+  }
+
+  100% {
+    margin-inline-start: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .indeterminate {
+    animation-duration: 2.4s;
+  }
+}

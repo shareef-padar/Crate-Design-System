@@ -1,0 +1,109 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--crate-control-gap);
+  font-family: var(--crate-font-family-heading);
+  font-weight: var(--crate-font-weight-semibold);
+  line-height: 1;
+  white-space: nowrap;
+  text-decoration: none;
+  border: 1px solid transparent;
+  border-radius: var(--crate-radius-md);
+  cursor: pointer;
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease,
+    color 0.15s ease,
+    filter 0.15s ease;
+}
+
+.button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.fullWidth {
+  inline-size: 100%;
+}
+
+.label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  inline-size: 1.125em;
+  block-size: 1.125em;
+}
+
+.icon svg {
+  inline-size: 100%;
+  block-size: 100%;
+}
+
+/* Sizes — density-aware via the component height/inset tokens. */
+.sm {
+  min-block-size: var(--crate-control-height-sm);
+  padding-inline: var(--crate-control-inset-sm);
+  font-size: var(--crate-font-size-body-sm);
+}
+
+.md {
+  min-block-size: var(--crate-control-height-md);
+  padding-inline: var(--crate-control-inset-md);
+  font-size: var(--crate-font-size-body);
+}
+
+.lg {
+  min-block-size: var(--crate-control-height-lg);
+  padding-inline: var(--crate-control-inset-lg);
+  font-size: var(--crate-font-size-body);
+}
+
+/* Primary — gradient across the teal ramp for depth. */
+.primary {
+  background: linear-gradient(to bottom right, var(--crate-primary-400), var(--crate-primary-600));
+  color: var(--crate-color-text-on-action);
+}
+
+.primary:hover:not(:disabled) {
+  filter: brightness(0.93);
+}
+
+.primary:active:not(:disabled) {
+  filter: brightness(0.85);
+}
+
+/* Secondary — neutral, border-led. */
+.secondary {
+  background-color: var(--crate-color-surface);
+  color: var(--crate-color-text-primary);
+  border-color: var(--crate-color-border-strong);
+}
+
+.secondary:hover:not(:disabled) {
+  background-color: var(--crate-color-surface-hover);
+}
+
+/* Ghost — minimal, for low-emphasis actions. */
+.ghost {
+  background-color: transparent;
+  color: var(--crate-color-action);
+}
+
+.ghost:hover:not(:disabled) {
+  background-color: var(--crate-color-action-subtle);
+}
+
+/* Danger — destructive actions. */
+.danger {
+  background-color: var(--crate-color-danger);
+  color: var(--crate-color-text-on-action);
+}
+
+.danger:hover:not(:disabled) {
+  background-color: var(--crate-color-danger-hover);
+}

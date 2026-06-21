@@ -1,0 +1,45 @@
+.avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+  border-radius: var(--crate-radius-full);
+  background-color: var(--crate-color-action-subtle);
+  color: var(--crate-color-text-link);
+  user-select: none;
+}
+
+.square {
+  border-radius: var(--crate-radius-md);
+}
+
+.image {
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+}
+
+.fallback {
+  font-family: var(--crate-font-family-heading);
+  font-weight: var(--crate-font-weight-semibold);
+  line-height: 1;
+}
+
+.sm {
+  inline-size: 2rem;
+  block-size: 2rem;
+  font-size: var(--crate-font-size-body-sm);
+}
+
+.md {
+  inline-size: 2.5rem;
+  block-size: 2.5rem;
+  font-size: var(--crate-font-size-body);
+}
+
+.lg {
+  inline-size: 3.5rem;
+  block-size: 3.5rem;
+  font-size: var(--crate-font-size-h4);
+}

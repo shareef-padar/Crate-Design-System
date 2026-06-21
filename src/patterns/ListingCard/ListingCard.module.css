@@ -1,0 +1,231 @@
+.card {
+  overflow: hidden;
+}
+
+/* ---------- Media (shared) ---------- */
+.media {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  inline-size: 100%;
+}
+
+.image {
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.placeholder {
+  inline-size: 100%;
+  block-size: 100%;
+  background-color: var(--crate-color-action-subtle);
+}
+
+.statusSlot {
+  position: absolute;
+  inset-block-start: 0.75rem;
+  inset-inline-end: 0.75rem;
+}
+
+/* Move-in speed badge */
+.moveIn {
+  position: absolute;
+  inset-block-start: 0.75rem;
+  inset-inline-start: 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding-block: 0.375rem;
+  padding-inline: 0.625rem;
+  font-family: var(--crate-font-family-heading);
+  font-weight: 600;
+  font-size: var(--crate-font-size-body-sm);
+  border-radius: var(--crate-radius-full);
+  white-space: nowrap;
+}
+
+.moveIn svg {
+  inline-size: 1em;
+  block-size: 1em;
+}
+
+.moveInFast {
+  background-color: var(--crate-color-success-subtle);
+  color: var(--crate-color-success-text);
+}
+
+.moveInStandard {
+  background-color: var(--crate-color-accent-secondary-subtle);
+  color: var(--crate-secondary-700);
+}
+
+/* Favorite (heart) button */
+.favorite {
+  position: absolute;
+  inset-block-start: 0.75rem;
+  inset-inline-end: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: 2.25rem;
+  block-size: 2.25rem;
+  font-size: 1.125rem;
+  color: var(--crate-color-text-secondary);
+  background-color: var(--crate-color-surface);
+  border: none;
+  border-radius: var(--crate-radius-full);
+  box-shadow: var(--crate-shadow-sm);
+  cursor: pointer;
+  transition: color 0.15s ease, transform 0.15s ease;
+}
+
+.favorite:hover {
+  transform: scale(1.05);
+}
+
+.favorite[aria-pressed="true"] {
+  color: var(--crate-color-text-primary);
+}
+
+.favorite:focus-visible {
+  outline: 2px solid var(--crate-color-focus-ring);
+  outline-offset: 2px;
+}
+
+/* Carousel arrows */
+.navArrow {
+  position: absolute;
+  inset-block-start: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: 2.25rem;
+  block-size: 2.25rem;
+  font-size: 1rem;
+  color: var(--crate-color-text-on-action);
+  background-color: var(--crate-text-900);
+  opacity: 0.85;
+  border: none;
+  border-radius: var(--crate-radius-full);
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+}
+
+.navArrow:hover {
+  opacity: 1;
+}
+
+.navArrow:focus-visible {
+  outline: 2px solid var(--crate-color-focus-ring);
+  outline-offset: 2px;
+}
+
+.navPrev {
+  inset-inline-start: 0.625rem;
+}
+
+.navNext {
+  inset-inline-end: 0.625rem;
+}
+
+/* ---------- Stack (grid) layout ---------- */
+.body {
+  padding: var(--crate-card-padding);
+}
+
+/* ---------- Row (list) layout ---------- */
+.rowCard {
+  display: flex;
+  align-items: stretch;
+  gap: 1.25rem;
+  padding: 0.625rem;
+}
+
+.mediaRow {
+  flex-shrink: 0;
+  inline-size: 21rem;
+  max-inline-size: 40%;
+  aspect-ratio: 16 / 10;
+  border-radius: var(--crate-radius-lg);
+  overflow: hidden;
+}
+
+.rowBody {
+  display: flex;
+  flex: 1;
+  gap: 1.5rem;
+  min-inline-size: 0;
+  padding-block: 0.625rem;
+  padding-inline-end: 0.625rem;
+}
+
+.rowMain {
+  flex: 1;
+  min-inline-size: 0;
+}
+
+.rowAside {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 1.25rem;
+  flex-shrink: 0;
+  padding-inline-start: 1.5rem;
+  border-inline-start: 1px solid var(--crate-color-border);
+}
+
+.priceBlock {
+  align-items: flex-end;
+  text-align: end;
+}
+
+.rowActions {
+  flex-shrink: 0;
+}
+
+/* ---------- Feature chips ---------- */
+.featureChip {
+  display: inline-flex;
+  align-items: center;
+  padding-block: 0.25rem;
+  padding-inline: 0.625rem;
+  font-family: var(--crate-font-family-body);
+  font-size: var(--crate-font-size-body-sm);
+  color: var(--crate-color-text-secondary);
+  background-color: var(--crate-color-surface-sunken);
+  border-radius: var(--crate-radius-full);
+  white-space: nowrap;
+}
+
+/* Stack the row layout on narrow containers. */
+@container (width < 34rem) {
+  .rowCard {
+    flex-direction: column;
+  }
+
+  .mediaRow {
+    inline-size: 100%;
+    max-inline-size: 100%;
+    aspect-ratio: 16 / 9;
+  }
+
+  .rowBody {
+    flex-direction: column;
+  }
+
+  .rowAside {
+    align-items: stretch;
+    padding-inline-start: 0;
+    border-inline-start: none;
+    border-block-start: 1px solid var(--crate-color-border);
+    padding-block-start: 1rem;
+  }
+
+  .priceBlock {
+    align-items: flex-start;
+    text-align: start;
+  }
+}

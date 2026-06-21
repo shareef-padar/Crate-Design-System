@@ -1,0 +1,47 @@
+import { Meta } from "@storybook/blocks";
+
+<Meta title="Foundations/Introduction" />
+
+# Crate Design System
+
+**Crate** is the design system for [Cargoz](https://cargoz.com) — a coded foundation of
+**design tokens** and **React components** built fresh from the Cargoz brand.
+
+It exists so every screen follows the same rules instead of re-deciding them:
+
+- **16px minimum body text** — readable on Windows LCDs in bright warehouse offices.
+- **High contrast, always** — see live WCAG ratios on the _Colors_ page.
+- **Neutral-led, one accent** — the teal `primary` does the color work; the UI stays calm.
+- **RTL-ready** — English and Arabic from the same components (the _RTL_ page).
+- **Light & dark** — a toolbar toggle away (the _Theming_ page).
+- **Trust is structural** — verified badges, prices, and contact actions are first-class.
+
+## How it fits together
+
+```
+tokens/*.json   →   src/styles/tokens.css   →   components   →   your product
+(edit these)        (generated)                 (use these)
+```
+
+1. **Primitives** — the raw color ramps (`--crate-primary-600`).
+2. **Semantic** — role names components use (`--crate-color-action`). These flip per theme.
+3. **Component** — per-component knobs, layered on top.
+
+Change a color once at the semantic tier and the whole system reskins.
+
+## Naming
+
+- **Primary** = teal/green · **Secondary** = purple · base step = **600**.
+- **Manrope** for headings, **Lato** for body.
+
+## Using the toolbar
+
+Two controls at the top drive every story:
+
+- **Theme** — Light / Dark
+- **Direction** — LTR (English) / RTL (Arabic)
+
+Flip them on any page to see components respond.
+
+> Color values are brand-accurate **placeholders** until the exact Cargoz Figma palette is
+> pulled in. The teal (#40BCAA) and purple (#7957FF) anchor the `500` step.

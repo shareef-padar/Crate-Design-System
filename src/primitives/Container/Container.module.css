@@ -1,0 +1,38 @@
+.container {
+  margin-inline: auto;
+  inline-size: 100%;
+  padding-inline: var(--crate-space-4);
+}
+
+/* Inline padding grows on wider viewports for breathing room. */
+@media (width >= 768px) {
+  .container {
+    padding-inline: var(--crate-space-6);
+  }
+}
+
+@media (width >= 1280px) {
+  .container {
+    padding-inline: var(--crate-space-8);
+  }
+}
+
+.sm {
+  max-inline-size: 40rem;
+}
+
+.md {
+  max-inline-size: 48rem;
+}
+
+.lg {
+  max-inline-size: 64rem;
+}
+
+.xl {
+  max-inline-size: 80rem;
+}
+
+.full {
+  max-inline-size: none;
+}

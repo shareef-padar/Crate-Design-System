@@ -1,0 +1,6 @@
+.textarea {
+  padding-block: var(--crate-control-inset-sm);
+  min-block-size: 4.5rem;
+  line-height: var(--crate-line-height-body);
+  resize: vertical;
+}

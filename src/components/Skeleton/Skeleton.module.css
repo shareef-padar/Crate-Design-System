@@ -1,0 +1,42 @@
+.skeleton {
+  display: block;
+  background-color: var(--crate-color-surface-sunken);
+  animation: crate-pulse 1.4s ease-in-out infinite;
+}
+
+.text {
+  block-size: 0.75em;
+  inline-size: 100%;
+  border-radius: var(--crate-radius-sm);
+  margin-block: 0.25em;
+}
+
+.rect {
+  block-size: 8rem;
+  inline-size: 100%;
+  border-radius: var(--crate-radius-md);
+}
+
+.circle {
+  block-size: 2.5rem;
+  inline-size: 2.5rem;
+  border-radius: var(--crate-radius-full);
+}
+
+@keyframes crate-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.45;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skeleton {
+    animation: none;
+    opacity: 0.7;
+  }
+}

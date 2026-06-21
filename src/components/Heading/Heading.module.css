@@ -1,0 +1,52 @@
+.heading {
+  font-family: var(--crate-font-family-heading);
+  font-weight: var(--crate-font-weight-bold);
+  color: var(--crate-color-text-primary);
+  letter-spacing: var(--crate-letter-spacing-normal);
+  margin: 0;
+}
+
+/* Tight tracking only on large display sizes, where it reads as refined, not cramped. */
+.display {
+  font-size: var(--crate-font-size-display);
+  line-height: var(--crate-line-height-display);
+  letter-spacing: var(--crate-letter-spacing-tight);
+}
+
+.h1 {
+  font-size: var(--crate-font-size-h1);
+  line-height: var(--crate-line-height-h1);
+  letter-spacing: var(--crate-letter-spacing-tight);
+}
+
+.h2 {
+  font-size: var(--crate-font-size-h2);
+  line-height: var(--crate-line-height-h2);
+  letter-spacing: var(--crate-letter-spacing-tight);
+}
+
+.h3 {
+  font-size: var(--crate-font-size-h3);
+  line-height: var(--crate-line-height-h3);
+}
+
+.h4 {
+  font-size: var(--crate-font-size-h4);
+  line-height: var(--crate-line-height-h4);
+}
+
+.h5 {
+  font-size: var(--crate-font-size-h5);
+  line-height: var(--crate-line-height-h5);
+  font-weight: var(--crate-font-weight-semibold);
+}
+
+.h6 {
+  font-size: var(--crate-font-size-h6);
+  line-height: var(--crate-line-height-h6);
+  font-weight: var(--crate-font-weight-semibold);
+}
+
+.secondary {
+  color: var(--crate-color-text-secondary);
+}

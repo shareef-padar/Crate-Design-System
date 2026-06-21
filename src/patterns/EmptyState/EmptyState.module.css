@@ -1,0 +1,32 @@
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.75rem;
+  padding: 2.5rem 1.5rem;
+}
+
+.icon {
+  display: grid;
+  place-items: center;
+  inline-size: 3.5rem;
+  block-size: 3.5rem;
+  margin-block-end: 0.25rem;
+  color: var(--crate-color-text-link);
+  background-color: var(--crate-color-action-subtle);
+  border-radius: var(--crate-radius-full);
+}
+
+.icon svg {
+  inline-size: 1.75rem;
+  block-size: 1.75rem;
+}
+
+.description {
+  max-inline-size: 28rem;
+}
+
+.action {
+  margin-block-start: 0.5rem;
+}

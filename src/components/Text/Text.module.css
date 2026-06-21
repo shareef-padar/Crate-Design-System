@@ -1,0 +1,48 @@
+.text {
+  font-family: var(--crate-font-family-body);
+  margin: 0;
+}
+
+.bodyLg {
+  font-size: var(--crate-font-size-body-lg);
+  line-height: var(--crate-line-height-body-lg);
+}
+
+.body {
+  font-size: var(--crate-font-size-body);
+  line-height: var(--crate-line-height-body);
+}
+
+.bodySm {
+  font-size: var(--crate-font-size-body-sm);
+  line-height: var(--crate-line-height-body-sm);
+}
+
+.caption {
+  font-size: var(--crate-font-size-caption);
+  line-height: var(--crate-line-height-caption);
+}
+
+.light {
+  font-weight: var(--crate-font-weight-light);
+}
+
+.regular {
+  font-weight: var(--crate-font-weight-regular);
+}
+
+.bold {
+  font-weight: var(--crate-font-weight-bold);
+}
+
+.primary {
+  color: var(--crate-color-text-primary);
+}
+
+.secondary {
+  color: var(--crate-color-text-secondary);
+}
+
+.muted {
+  color: var(--crate-color-text-muted);
+}

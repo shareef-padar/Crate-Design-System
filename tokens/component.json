@@ -1,0 +1,24 @@
+{
+  "control": {
+    "$type": "dimension",
+    "height-sm": { "$value": "2rem" },
+    "height-md": { "$value": "2.5rem" },
+    "height-lg": { "$value": "3rem" },
+    "inset-sm": { "$value": "0.625rem" },
+    "inset-md": { "$value": "0.875rem" },
+    "inset-lg": { "$value": "1.125rem" },
+    "gap": { "$value": "0.5rem" }
+  },
+  "field": {
+    "$type": "dimension",
+    "gap": { "$value": "0.375rem" }
+  },
+  "card": {
+    "$type": "dimension",
+    "padding": { "$value": "1.5rem" }
+  },
+  "section": {
+    "$type": "dimension",
+    "gap": { "$value": "1rem" }
+  }
+}

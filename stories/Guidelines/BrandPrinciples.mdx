@@ -1,0 +1,72 @@
+import { Meta } from "@storybook/blocks";
+
+<Meta title="Guidelines/Brand Principles" />
+
+# Brand Principles
+
+Crate expresses one personality for Cargoz, a **B2B logistics** product:
+
+> **Modern · Professional · Mature**
+
+These aren't decoration. They are the tie-breakers for every design decision. When two
+options both "work," pick the one that is more restrained, clearer, and more confident.
+
+---
+
+## What each word means here
+
+### Modern
+Geometric Manrope headings, crisp flat surfaces, generous whitespace, a clean grid, and a
+**single** restrained accent (teal). Modern is achieved by removing, not adding.
+
+### Professional
+High contrast, unmistakable hierarchy, and **predictable, consistent** components. Every
+listing card, every form field behaves the same way. Trust signals (verified badges,
+prices, phone/WhatsApp) are structural, not afterthoughts. Nothing is decorative for its
+own sake.
+
+### Mature
+Confident **neutrals dominate** the interface. The accent is used sparingly and with
+intent. Elevation and motion are subtle — never flashy. The system reads as something a
+Coca-Cola or Noon operations manager already trusts.
+
+---
+
+## The rules these produce
+
+**Color**
+- Neutrals (the `text` ramp) carry the UI. The teal `primary` accent appears **only** on:
+  primary actions, links, active/selected states, and focus rings.
+- ✅ Use `--crate-color-action` for the one main action on a view.
+- 🚫 Don't color multiple elements with the accent to "add life" — that reads junior.
+- The decorative ramps (`coral`, `mint`, `soft-violet`, `yellow`, `sky-blue`) are for
+  **data visualization and category coding only** — never buttons, links, or chrome.
+- Status colors (`danger`, `success`, `warning`, `info`) communicate state, nothing else.
+
+**Shape & depth**
+- **Subtle radius** (`--crate-radius-md`, 6px) on controls and cards. Not pill-shaped, not
+  sharp.
+- **Border-led separation.** Resting surfaces use a 1px `--crate-color-border` and little
+  or no shadow. Shadows (`shadow-md`+) are reserved for floating UI: dropdowns, modals,
+  toasts.
+
+**Type**
+- Utilitarian scale — information first. Headings are sized to organize, not to shout.
+- **16px body floor**, always. High contrast for Windows LCD glare.
+
+**Motion** (Phase 2+)
+- Quick and purposeful (150–200ms, ease-out). State feedback, not entertainment. No
+  bounce, no long flourishes.
+
+**Icons** (Phase 2+)
+- Consistent stroke/outline style, geometric, 1.5px. Text-labeled `Button` is the default
+  for actions; for compact, obvious actions use `IconButton` with a `label` tooltip so its
+  purpose is still discoverable on hover.
+
+---
+
+## A quick gut check
+
+Before shipping a screen, ask: _Would this look at home in an enterprise logistics tool a
+40-year-old operations manager relies on every day?_ If it feels playful, busy, or
+trend-chasing, pull it back.

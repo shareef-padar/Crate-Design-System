@@ -1,0 +1,58 @@
+.tabs {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.list {
+  display: flex;
+  gap: 0.25rem;
+  border-block-end: 1px solid var(--crate-color-border);
+}
+
+.tab {
+  position: relative;
+  padding: 0.625rem 0.875rem;
+  font-family: var(--crate-font-family-heading);
+  font-weight: var(--crate-font-weight-medium);
+  font-size: var(--crate-font-size-body);
+  color: var(--crate-color-text-secondary);
+  background: none;
+  border: none;
+  cursor: pointer;
+  border-radius: var(--crate-radius-sm) var(--crate-radius-sm) 0 0;
+  transition: color 0.15s ease;
+}
+
+.tab:hover:not(:disabled) {
+  color: var(--crate-color-text-primary);
+}
+
+.tab:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.tab:focus-visible {
+  outline: 2px solid var(--crate-color-focus-ring);
+  outline-offset: -2px;
+}
+
+/* Active tab — neutral label, accent underline for wayfinding ("where am I"). */
+.tabSelected {
+  color: var(--crate-color-text-primary);
+}
+
+.tabSelected::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  inset-block-end: -1px;
+  block-size: 2px;
+  background-color: var(--crate-color-action);
+}
+
+.panel:focus-visible {
+  outline: 2px solid var(--crate-color-focus-ring);
+  outline-offset: 2px;
+}

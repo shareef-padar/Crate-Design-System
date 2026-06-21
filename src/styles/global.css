@@ -1,0 +1,31 @@
+/**
+ * Crate global styles — the single stylesheet a consuming app imports:
+ *   import "@cargoz/crate/styles.css";
+ *
+ * Pulls in tokens, fonts, reset, elevation, then sets the base document defaults that
+ * encode Cargoz's hard rules (16px body floor, high-contrast visible focus).
+ */
+
+@import url("./tokens.css");
+@import url("./fonts.css");
+@import url("./reset.css");
+@import url("./elevation.css");
+
+body {
+  font-family: var(--crate-font-family-body);
+  font-size: var(--crate-font-size-body); /* 16px floor — never smaller for body */
+  font-weight: var(--crate-font-weight-regular);
+  line-height: var(--crate-line-height-body);
+  color: var(--crate-color-text-primary);
+  background-color: var(--crate-color-bg);
+}
+
+/* High-contrast, always-visible focus. Never remove without a replacement. */
+:focus-visible {
+  outline: 2px solid var(--crate-color-focus-ring);
+  outline-offset: 2px;
+}
+
+::selection {
+  background-color: var(--crate-color-action-subtle);
+}

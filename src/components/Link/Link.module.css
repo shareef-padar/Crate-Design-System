@@ -1,0 +1,26 @@
+.link {
+  color: var(--crate-color-text-link);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+  text-decoration-thickness: 1px;
+  border-radius: var(--crate-radius-sm);
+  transition: color 0.15s ease;
+}
+
+.link:hover {
+  color: var(--crate-color-action-hover);
+}
+
+.link:focus-visible {
+  outline: 2px solid var(--crate-color-focus-ring);
+  outline-offset: 2px;
+}
+
+.subtle {
+  text-decoration: none;
+}
+
+.subtle:hover,
+.subtle:focus-visible {
+  text-decoration: underline;
+}
