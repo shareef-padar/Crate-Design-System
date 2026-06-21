@@ -38,9 +38,52 @@
   margin-block-start: 0.125rem;
 }
 
+/* Low-emphasis follow-up action — tone-coloured text, never a solid fill. */
+.action {
+  display: inline-flex;
+  align-items: center;
+  margin-block-start: 0.5rem;
+  padding: 0;
+  font-family: var(--crate-font-family-heading);
+  font-weight: var(--crate-font-weight-semibold);
+  font-size: var(--crate-font-size-body-sm);
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.action:hover {
+  text-decoration-thickness: 0.125em;
+}
+
+.action:focus-visible {
+  outline: 2px solid var(--crate-color-focus-ring);
+  outline-offset: 2px;
+  border-radius: var(--crate-radius-sm);
+}
+
 .close {
   margin-block-start: -0.25rem;
   margin-inline-end: -0.375rem;
+}
+
+/* Compact — single line, denser, action sits inline after the message. */
+.compact {
+  align-items: center;
+  padding-block: 0.5rem;
+}
+
+.compact .body {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+}
+
+.compact .action {
+  margin-block-start: 0;
 }
 
 .info {
@@ -77,4 +120,34 @@
 
 .danger .icon {
   color: var(--crate-color-danger);
+}
+
+.neutral {
+  background-color: var(--crate-color-surface-sunken);
+  border-color: var(--crate-color-border);
+}
+
+.neutral .icon {
+  color: var(--crate-color-text-secondary);
+}
+
+/* Action inherits the tone's readable text colour. */
+.info .action {
+  color: var(--crate-color-info-text);
+}
+
+.success .action {
+  color: var(--crate-color-success-text);
+}
+
+.warning .action {
+  color: var(--crate-color-warning-text);
+}
+
+.danger .action {
+  color: var(--crate-color-danger-text);
+}
+
+.neutral .action {
+  color: var(--crate-color-text-primary);
 }

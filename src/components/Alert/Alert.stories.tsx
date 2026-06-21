@@ -28,6 +28,50 @@ export const AlertTones: Story = {
       <Alert tone="danger" title="Booking failed">
         We couldn&rsquo;t process your request. Please try again.
       </Alert>
+      <Alert tone="neutral" title="New: saved searches">
+        Save a search and we&rsquo;ll alert you when matching units list.
+      </Alert>
+    </Stack>
+  ),
+};
+
+export const WithAction: Story = {
+  render: () => (
+    <Stack gap={3} style={{ maxInlineSize: "32rem" }}>
+      <Alert
+        tone="info"
+        title="Verify your business account"
+        action={{ label: "Complete verification", onClick: () => {} }}
+      >
+        Verified accounts get priority responses from warehouse owners.
+      </Alert>
+      <Alert
+        tone="danger"
+        title="Payment method expired"
+        action={{ label: "Update payment", onClick: () => {} }}
+        onClose={() => {}}
+      >
+        Renew your card to keep auto-billing active.
+      </Alert>
+    </Stack>
+  ),
+};
+
+export const Compact: Story = {
+  render: () => (
+    <Stack gap={3} style={{ maxInlineSize: "36rem" }}>
+      <Alert tone="success" compact onClose={() => {}}>
+        Your enquiry was sent successfully.
+      </Alert>
+      <Alert tone="warning" compact>
+        Only 2 units left at this rate.
+      </Alert>
+      <Alert tone="info" compact action={{ label: "Learn more", onClick: () => {} }}>
+        Move-in within 48 hours on most listings.
+      </Alert>
+      <Alert tone="neutral" compact onClose={() => {}}>
+        Pricing shown excludes VAT.
+      </Alert>
     </Stack>
   ),
 };

@@ -38,4 +38,34 @@ describe("Alert", () => {
     );
     expect(await axe(container)).toHaveNoViolations();
   });
+
+  it("renders a button action and fires onClick", async () => {
+    const onClick = vi.fn();
+    render(
+      <Alert tone="info" action={{ label: "Verify now", onClick }}>
+        Action needed
+      </Alert>,
+    );
+    await userEvent.click(screen.getByRole("button", { name: "Verify now" }));
+    expect(onClick).toHaveBeenCalledOnce();
+  });
+
+  it("renders a link action when href is given", () => {
+    render(
+      <Alert tone="neutral" action={{ label: "Learn more", href: "/docs" }}>
+        Info
+      </Alert>,
+    );
+    expect(screen.getByRole("link", { name: "Learn more" })).toHaveAttribute("href", "/docs");
+  });
+
+  it("drops the title in compact mode but keeps the message", () => {
+    render(
+      <Alert tone="warning" title="Ignored" compact>
+        Only 2 left
+      </Alert>,
+    );
+    expect(screen.getByRole("alert")).toHaveTextContent("Only 2 left");
+    expect(screen.queryByText("Ignored")).not.toBeInTheDocument();
+  });
 });
