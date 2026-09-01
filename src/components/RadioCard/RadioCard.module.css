@@ -1,0 +1,114 @@
+.card {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  padding: 1rem 0.75rem;
+  background-color: var(--crate-color-surface);
+  border: 1px solid var(--crate-color-border);
+  border-radius: var(--crate-radius-lg);
+  cursor: pointer;
+  transition: border-color 0.15s ease;
+}
+
+.card:hover:not(.disabled) {
+  border-color: var(--crate-color-border-strong);
+}
+
+/*
+ * Deliberate exception to Crate's neutral-selection rule: these cards
+ * choose between distinct tiers/paths in a step-by-step estimate flow
+ * (service level, unit size), not a plain settings toggle. A teal accent
+ * makes the current choice easier to spot among several similar-looking
+ * cards than a neutral border-weight change would — closer in spirit to
+ * the wayfinding exception (active tab, current page) than to Checkbox/
+ * Radio/Switch. See the `screenshot-reference-not-spec` memory note.
+ */
+.card:has(.input:checked) {
+  border-color: var(--crate-color-action);
+}
+
+.disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.control {
+  position: relative;
+  display: inline-flex;
+  flex-shrink: 0;
+  margin-block-start: 0.125rem;
+}
+
+.input {
+  appearance: none;
+  inline-size: 1.125rem;
+  block-size: 1.125rem;
+  margin: 0;
+  border: 1px solid var(--crate-color-border-strong);
+  border-radius: var(--crate-radius-full);
+  background-color: var(--crate-color-surface);
+  cursor: inherit;
+  transition: border-color 0.15s ease;
+}
+
+.input:checked {
+  border-color: var(--crate-color-action);
+}
+
+.input:focus-visible {
+  outline: 2px solid var(--crate-color-focus-ring);
+  outline-offset: 2px;
+}
+
+.dot {
+  position: absolute;
+  inset-block-start: 50%;
+  inset-inline-start: 50%;
+  inline-size: 0.5rem;
+  block-size: 0.5rem;
+  border-radius: var(--crate-radius-full);
+  background-color: var(--crate-color-action);
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.15s ease;
+  pointer-events: none;
+}
+
+.input:checked ~ .dot {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  flex: 1;
+  min-inline-size: 0;
+}
+
+.titleRow {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.title {
+  font-family: var(--crate-font-family-body);
+  font-weight: var(--crate-font-weight-semibold);
+  font-size: var(--crate-font-size-body);
+  color: var(--crate-color-text-primary);
+}
+
+.meta {
+  flex-shrink: 0;
+  font-family: var(--crate-font-family-body);
+  font-size: var(--crate-font-size-body);
+  color: var(--crate-color-text-primary);
+  text-align: end;
+}
+
+.description {
+  font-family: var(--crate-font-family-body);
+  font-size: var(--crate-font-size-body-sm);
+  color: var(--crate-color-text-muted);
+}

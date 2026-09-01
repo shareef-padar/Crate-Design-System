@@ -54,6 +54,7 @@ export * from "./components/Select";
 export * from "./components/DatePicker";
 export * from "./components/Checkbox";
 export * from "./components/Radio";
+export * from "./components/RadioCard";
 export * from "./components/Switch";
 export * from "./components/SegmentedControl";
 export * from "./components/Stepper";
