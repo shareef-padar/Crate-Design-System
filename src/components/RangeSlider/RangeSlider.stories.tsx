@@ -42,3 +42,26 @@ export const SpaceNeeded: Story = {
     );
   },
 };
+
+/** Header value + min/max range captions — for a warehouse estimate summary panel. */
+export const WithRangeCaptions: Story = {
+  render: () => {
+    const [v, setV] = useState(13000);
+    return (
+      <div style={{ maxInlineSize: "34rem" }}>
+        <FormField label="Available space">
+          <RangeSlider
+            value={v}
+            min={500}
+            max={25000}
+            step={100}
+            onChange={setV}
+            showValue
+            showRange
+            formatValue={(n) => `${n.toLocaleString()} sqft`}
+          />
+        </FormField>
+      </div>
+    );
+  },
+};

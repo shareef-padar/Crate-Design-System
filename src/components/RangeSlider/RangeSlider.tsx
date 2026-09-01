@@ -18,7 +18,9 @@ export interface RangeSliderProps
   onChange?: (value: number) => void;
   /** Show the current value beside the slider. */
   showValue?: boolean;
-  /** Format the displayed value (e.g. add "sqft"). */
+  /** Show min/max captions below the track. */
+  showRange?: boolean;
+  /** Format the displayed value (e.g. add "sqft"). Also used for the min/max captions. */
   formatValue?: (value: number) => string;
 }
 
@@ -33,6 +35,7 @@ export const RangeSlider = forwardRef<HTMLInputElement, RangeSliderProps>(
       step = 1,
       onChange,
       showValue = false,
+      showRange = false,
       formatValue,
       disabled,
       id,
@@ -48,29 +51,37 @@ export const RangeSlider = forwardRef<HTMLInputElement, RangeSliderProps>(
 
     return (
       <div className={cx(styles.wrap, className)}>
-        <input
-          ref={ref}
-          type="range"
-          className={styles.input}
-          min={min}
-          max={max}
-          step={step}
-          value={current}
-          disabled={field.disabled}
-          id={field.id}
-          aria-describedby={field["aria-describedby"]}
-          style={{ "--range-pct": `${pct}%` } as CSSProperties}
-          onChange={(e) => {
-            const v = Number(e.target.value);
-            if (value === undefined) setInternal(v);
-            onChange?.(v);
-          }}
-          {...rest}
-        />
-        {showValue && (
-          <span className={styles.value}>
-            {formatValue ? formatValue(current) : current}
-          </span>
+        <div className={styles.track}>
+          <input
+            ref={ref}
+            type="range"
+            className={styles.input}
+            min={min}
+            max={max}
+            step={step}
+            value={current}
+            disabled={field.disabled}
+            id={field.id}
+            aria-describedby={field["aria-describedby"]}
+            style={{ "--range-pct": `${pct}%` } as CSSProperties}
+            onChange={(e) => {
+              const v = Number(e.target.value);
+              if (value === undefined) setInternal(v);
+              onChange?.(v);
+            }}
+            {...rest}
+          />
+          {showValue && (
+            <span className={styles.value}>
+              {formatValue ? formatValue(current) : current}
+            </span>
+          )}
+        </div>
+        {showRange && (
+          <div className={styles.rangeCaptions}>
+            <span>{formatValue ? formatValue(min) : min}</span>
+            <span>{formatValue ? formatValue(max) : max}</span>
+          </div>
         )}
       </div>
     );
