@@ -37,6 +37,11 @@ describe("FilterChip", () => {
     expect(icon.closest("[aria-hidden]")).toBeInTheDocument();
   });
 
+  it("renders at the requested size", () => {
+    render(<FilterChip size="sm">100</FilterChip>);
+    expect(screen.getByRole("button", { name: "100" })).toBeInTheDocument();
+  });
+
   it("has no accessibility violations", async () => {
     const { container } = render(
       <FilterChip icon={<svg />} selected>

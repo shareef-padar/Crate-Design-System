@@ -19,6 +19,12 @@
     color 0.15s ease;
 }
 
+.sm {
+  min-block-size: 2.25rem;
+  padding-inline: 0.75rem;
+  font-size: var(--crate-font-size-body-sm);
+}
+
 .chip:hover:not(.selected) {
   border-color: var(--crate-color-border-strong);
   color: var(--crate-color-text-secondary);

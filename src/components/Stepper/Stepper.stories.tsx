@@ -3,6 +3,9 @@ import { useState } from "react";
 import { Stepper } from "./Stepper";
 import { SegmentedControl } from "../SegmentedControl";
 import { FormField } from "../FormField";
+import { FilterChip } from "../../patterns/FilterChip";
+import { Stack } from "../../primitives/Stack";
+import { Inline } from "../../primitives/Inline";
 
 const meta: Meta<typeof Stepper> = {
   title: "Components/Stepper",
@@ -173,6 +176,48 @@ export const WithInlineUnitToggle: Story = {
               bordered={false}
             />
           </div>
+        </FormField>
+      </div>
+    );
+  },
+};
+
+/**
+ * Quick-pick presets below the stepper (Figma node 3434:50666) — clicking a
+ * preset jumps straight to that value. The pills are `FilterChip size="sm"`:
+ * same selected/unselected treatment already established for facet chips,
+ * just compact enough to sit under a 40px stepper row.
+ */
+export const WithPresets: Story = {
+  render: () => {
+    const PRESETS = [100, 300, 500, 1000];
+    const [size, setSize] = useState(100);
+    return (
+      <div style={{ maxInlineSize: "26rem" }}>
+        <FormField label="Size">
+          <Stack gap={2}>
+            <Stepper
+              value={size}
+              onChange={setSize}
+              min={0}
+              max={10000}
+              step={50}
+              unit="sqft"
+              label="Size"
+            />
+            <Inline gap={2} wrap>
+              {PRESETS.map((preset) => (
+                <FilterChip
+                  key={preset}
+                  size="sm"
+                  selected={size === preset}
+                  onClick={() => setSize(preset)}
+                >
+                  {preset}
+                </FilterChip>
+              ))}
+            </Inline>
+          </Stack>
         </FormField>
       </div>
     );
