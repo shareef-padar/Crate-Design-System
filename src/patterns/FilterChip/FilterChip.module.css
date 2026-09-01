@@ -34,3 +34,15 @@
   background-color: var(--crate-color-surface-sunken);
   border-color: var(--crate-color-border-strong);
 }
+
+.icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  inline-size: 1.125em;
+  block-size: 1.125em;
+}
+
+.icon svg {
+  inline-size: 100%;
+  block-size: 100%;
+}
