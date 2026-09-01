@@ -12,8 +12,25 @@ export default meta;
 type Story = StoryObj<typeof NestedSelect>;
 
 const LOCATIONS: NestedSelectOption[] = [
-  { value: "dubai", label: "Dubai" },
-  { value: "abu-dhabi", label: "Abu Dhabi" },
+  {
+    value: "dubai",
+    label: "Dubai",
+    children: [
+      { value: "al-quoz", label: "Al Quoz" },
+      { value: "jebel-ali", label: "Jebel Ali Industrial" },
+      { value: "al-qusais", label: "Al Qusais Industrial" },
+      { value: "dubai-investment-park", label: "Dubai Investment Park" },
+    ],
+  },
+  {
+    value: "abu-dhabi",
+    label: "Abu Dhabi",
+    children: [
+      { value: "mussafah", label: "Mussafah" },
+      { value: "icad", label: "ICAD" },
+      { value: "kizad", label: "KIZAD" },
+    ],
+  },
   {
     value: "sharjah",
     label: "Sharjah",
@@ -24,7 +41,15 @@ const LOCATIONS: NestedSelectOption[] = [
       { value: "sharjah-industrial-area", label: "Sharjah Industrial Area" },
     ],
   },
-  { value: "ajman", label: "Ajman" },
+  {
+    value: "ajman",
+    label: "Ajman",
+    children: [
+      { value: "ajman-industrial-1", label: "Ajman Industrial Area 1" },
+      { value: "ajman-industrial-2", label: "Ajman Industrial Area 2" },
+      { value: "al-jurf", label: "Al Jurf" },
+    ],
+  },
 ];
 
 /** From the Cargoz warehouse-estimate location filter (Figma node 6771:21350). */

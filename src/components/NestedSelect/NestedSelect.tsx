@@ -180,6 +180,7 @@ export function NestedSelect({
                   id={`${base}-${item.value}`}
                   className={styles.leafRow}
                   label={item.label}
+                  tone="accent"
                   checked={selected.has(item.value)}
                   onChange={() => toggleLeaf(item.value)}
                 />
@@ -193,6 +194,7 @@ export function NestedSelect({
               <div key={item.value} className={styles.groupRow}>
                 <Checkbox
                   aria-label={item.label}
+                  tone="accent"
                   checked={allIn}
                   indeterminate={someIn}
                   onChange={() => toggleGroup(item)}

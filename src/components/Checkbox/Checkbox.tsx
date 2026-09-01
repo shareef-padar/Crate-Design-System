@@ -8,6 +8,8 @@ import {
 import { cx } from "../../utils/cx";
 import styles from "./Checkbox.module.css";
 
+export type CheckboxTone = "neutral" | "accent";
+
 export interface CheckboxProps
   extends Omit<ComponentPropsWithoutRef<"input">, "type"> {
   /** Label beside the control. */
@@ -20,12 +22,19 @@ export interface CheckboxProps
    * JSX attribute); `checked` still controls the actual form value.
    */
   indeterminate?: boolean;
+  /**
+   * Checked/indeterminate fill color. Default `"neutral"` per Crate's
+   * selection-chrome rule. `"accent"` (teal) is a deliberate, scoped
+   * exception for a specific composition (e.g. NestedSelect) — don't
+   * default whole new usages to it without a reason, same as RadioCard.
+   */
+  tone?: CheckboxTone;
 }
 
 /** Checkbox with an inline label. Accent fill when checked. */
 export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
   function Checkbox(
-    { label, description, indeterminate = false, disabled, className, ...rest },
+    { label, description, indeterminate = false, tone = "neutral", disabled, className, ...rest },
     ref,
   ) {
     const inputRef = useRef<HTMLInputElement>(null);
@@ -35,7 +44,14 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
     }, [indeterminate]);
 
     return (
-      <label className={cx(styles.root, disabled && styles.disabled, className)}>
+      <label
+        className={cx(
+          styles.root,
+          !description && styles.singleLine,
+          disabled && styles.disabled,
+          className,
+        )}
+      >
         <span className={styles.control}>
           <input
             ref={(node) => {
@@ -44,7 +60,11 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
               else if (ref) ref.current = node;
             }}
             type="checkbox"
-            className={cx(styles.input, indeterminate && styles.indeterminate)}
+            className={cx(
+              styles.input,
+              indeterminate && styles.indeterminate,
+              tone === "accent" && styles.accent,
+            )}
             disabled={disabled}
             {...rest}
           />

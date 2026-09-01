@@ -5,6 +5,16 @@
   cursor: pointer;
 }
 
+/* No description → single line of content, so center the checkbox against
+   the label instead of pinning it to a "first line" that doesn't exist. */
+.singleLine {
+  align-items: center;
+}
+
+.singleLine .control {
+  margin-block-start: 0;
+}
+
 .disabled {
   cursor: not-allowed;
   opacity: 0.55;
@@ -35,6 +45,12 @@
 .input.indeterminate {
   background-color: var(--crate-color-selected);
   border-color: var(--crate-color-selected);
+}
+
+.input.accent:checked,
+.input.accent.indeterminate {
+  background-color: var(--crate-color-action);
+  border-color: var(--crate-color-action);
 }
 
 .input:focus-visible {
