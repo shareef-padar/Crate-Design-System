@@ -35,12 +35,23 @@
   opacity: 0.55;
 }
 
+/*
+ * The grip glyph is a data-URI SVG, not a token — native range-thumb
+ * pseudo-elements can't hold child markup, so an icon has to be painted as a
+ * background layer. The color is hardcoded per theme below (light: primary-600
+ * #2EA191, dark: primary-400 #4CC4B1) to match --crate-color-action, since a
+ * data URI can't reference a CSS custom property. Update both if that token
+ * ramp step ever changes.
+ */
 .input::-webkit-slider-thumb {
   appearance: none;
   inline-size: 1.75rem;
   block-size: 1.75rem;
   border-radius: var(--crate-radius-full);
   background-color: var(--crate-color-surface);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='9' height='8' viewBox='0 0 9 8'%3E%3Cpath d='M1 0v8M4.5 0v8M8 0v8' stroke='%232EA191' stroke-width='1.1' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
   border: 1px solid var(--crate-color-action);
   box-shadow: var(--crate-shadow-md);
   cursor: pointer;
@@ -51,9 +62,20 @@
   block-size: 1.75rem;
   border-radius: var(--crate-radius-full);
   background-color: var(--crate-color-surface);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='9' height='8' viewBox='0 0 9 8'%3E%3Cpath d='M1 0v8M4.5 0v8M8 0v8' stroke='%232EA191' stroke-width='1.1' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
   border: 1px solid var(--crate-color-action);
   box-shadow: var(--crate-shadow-md);
   cursor: pointer;
+}
+
+[data-theme="dark"] .input::-webkit-slider-thumb {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='9' height='8' viewBox='0 0 9 8'%3E%3Cpath d='M1 0v8M4.5 0v8M8 0v8' stroke='%234CC4B1' stroke-width='1.1' stroke-linecap='round'/%3E%3C/svg%3E");
+}
+
+[data-theme="dark"] .input::-moz-range-thumb {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='9' height='8' viewBox='0 0 9 8'%3E%3Cpath d='M1 0v8M4.5 0v8M8 0v8' stroke='%234CC4B1' stroke-width='1.1' stroke-linecap='round'/%3E%3C/svg%3E");
 }
 
 .value {
