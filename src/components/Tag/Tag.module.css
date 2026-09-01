@@ -1,28 +1,21 @@
-.badge {
+.tag {
   display: inline-flex;
   align-items: center;
   gap: 0.375rem;
-  padding-block: 0.1875rem;
-  padding-inline: 0.5rem;
+  padding-block: 0.25rem;
+  padding-inline: 0.625rem 0.375rem;
   font-family: var(--crate-font-family-heading);
   font-weight: var(--crate-font-weight-semibold);
   font-size: var(--crate-font-size-body-sm);
   line-height: 1.25;
+  border: 1px solid transparent;
   border-radius: var(--crate-radius-full);
   white-space: nowrap;
 }
 
-.sm {
-  padding-block: 0.125rem;
-  padding-inline: 0.4375rem;
-  font-size: var(--crate-font-size-caption);
-}
-
-.dot {
-  inline-size: 0.4375em;
-  block-size: 0.4375em;
-  border-radius: var(--crate-radius-full);
-  background-color: currentcolor;
+/* No remove button → balance the inline padding. */
+.tag:not(:has(.remove)) {
+  padding-inline-end: 0.625rem;
 }
 
 .icon {
@@ -37,8 +30,45 @@
   block-size: 100%;
 }
 
+.label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.remove {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  inline-size: 1.125rem;
+  block-size: 1.125rem;
+  padding: 0;
+  font-size: 0.75rem;
+  color: inherit;
+  background: none;
+  border: none;
+  border-radius: var(--crate-radius-full);
+  cursor: pointer;
+  opacity: 0.7;
+  transition:
+    opacity 0.15s ease,
+    background-color 0.15s ease;
+}
+
+.remove:hover {
+  opacity: 1;
+  background-color: var(--crate-color-surface-hover);
+}
+
+.remove:focus-visible {
+  outline: 2px solid var(--crate-color-focus-ring);
+  outline-offset: 1px;
+  opacity: 1;
+}
+
 .neutral {
   background-color: var(--crate-color-surface-sunken);
+  border-color: var(--crate-color-border);
   color: var(--crate-color-text-secondary);
 }
 

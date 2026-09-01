@@ -23,8 +23,13 @@ const TONE_CLASS: Record<BadgeTone, string> = {
 export interface BadgeProps extends ComponentPropsWithoutRef<"span"> {
   tone?: BadgeTone;
   size?: BadgeSize;
-  /** Show a leading status dot. */
+  /** Show a leading status dot. Ignored when `icon` is set. */
   dot?: boolean;
+  /**
+   * Optional leading icon (e.g. a Phosphor icon). Decorative — the badge text
+   * carries the meaning, so the icon is hidden from assistive tech.
+   */
+  icon?: ReactNode;
   children: ReactNode;
 }
 
@@ -33,6 +38,7 @@ export function Badge({
   tone = "neutral",
   size = "md",
   dot = false,
+  icon,
   className,
   children,
   ...rest
@@ -47,7 +53,13 @@ export function Badge({
       )}
       {...rest}
     >
-      {dot && <span className={styles.dot} aria-hidden />}
+      {icon ? (
+        <span className={styles.icon} aria-hidden>
+          {icon}
+        </span>
+      ) : (
+        dot && <span className={styles.dot} aria-hidden />
+      )}
       {children}
     </span>
   );

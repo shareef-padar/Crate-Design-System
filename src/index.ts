@@ -22,6 +22,8 @@ export * from "./components/Spinner";
 export * from "./components/Button";
 export * from "./components/IconButton";
 export * from "./components/Badge";
+export * from "./components/Tag";
+export * from "./components/CountBadge";
 export * from "./components/Card";
 export * from "./components/Link";
 export * from "./components/Avatar";

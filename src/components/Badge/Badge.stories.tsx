@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { Clock, ShieldCheck, Lightning } from "@phosphor-icons/react";
 import { Badge } from "./Badge";
 
 const meta: Meta<typeof Badge> = {
@@ -39,6 +40,22 @@ export const WithDot: Story = {
       </Badge>
       <Badge tone="danger" dot>
         Fully booked
+      </Badge>
+    </Row>
+  ),
+};
+
+export const WithIcon: Story = {
+  render: () => (
+    <Row>
+      <Badge tone="info" icon={<Clock weight="bold" />}>
+        Pending review
+      </Badge>
+      <Badge tone="success" icon={<ShieldCheck weight="fill" />}>
+        Verified owner
+      </Badge>
+      <Badge tone="accent" icon={<Lightning weight="fill" />}>
+        Fast move-in
       </Badge>
     </Row>
   ),

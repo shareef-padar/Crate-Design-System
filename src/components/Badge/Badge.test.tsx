@@ -17,4 +17,14 @@ describe("Badge", () => {
     );
     expect(await axe(container)).toHaveNoViolations();
   });
+
+  it("renders a leading icon and hides it from assistive tech", () => {
+    render(
+      <Badge tone="info" icon={<svg data-testid="icon" />}>
+        Pending
+      </Badge>,
+    );
+    const icon = screen.getByTestId("icon");
+    expect(icon.closest("[aria-hidden]")).toBeInTheDocument();
+  });
 });
