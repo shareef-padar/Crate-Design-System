@@ -148,6 +148,11 @@ export const Choices: Story = {
         <Checkbox label="24/7 access" description="Round-the-clock entry" />
         <Checkbox label="Loading dock" />
         <Checkbox label="Unavailable option" disabled />
+        <Checkbox
+          label="Sharjah"
+          description="Some but not all sub-areas selected"
+          indeterminate
+        />
       </Stack>
       <Stack gap={3}>
         <Heading level={3} size="h5">
