@@ -32,7 +32,7 @@
 .selected {
   color: var(--crate-color-text-primary);
   background-color: var(--crate-color-surface-sunken);
-  border-color: var(--crate-color-border-strong);
+  border-color: var(--crate-color-text-primary);
 }
 
 .icon {
