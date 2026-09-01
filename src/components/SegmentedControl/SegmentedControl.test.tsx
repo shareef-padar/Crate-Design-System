@@ -29,4 +29,12 @@ describe("SegmentedControl", () => {
     );
     expect(screen.getByRole("radiogroup", { name: "Storage unit" })).toBeInTheDocument();
   });
+
+  it("still functions when unbordered (embedded in another container)", async () => {
+    const onChange = vi.fn();
+    render(<SegmentedControl options={OPTIONS} value="sqft" onChange={onChange} bordered={false} />);
+    expect(screen.getByRole("radio", { name: "Sqft" })).toHaveAttribute("aria-checked", "true");
+    await userEvent.click(screen.getByRole("radio", { name: "CBM" }));
+    expect(onChange).toHaveBeenCalledWith("cbm");
+  });
 });

@@ -33,4 +33,11 @@ describe("Stepper", () => {
     render(<Stepper value={10} onChange={() => {}} max={10} label="Duration" />);
     expect(screen.getByRole("button", { name: "Increase" })).toBeDisabled();
   });
+
+  it("still renders buttons and value when unbordered", () => {
+    render(<Stepper value={5} onChange={() => {}} label="Duration" bordered={false} />);
+    expect(screen.getByRole("button", { name: "Increase" })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Decrease" })).toBeInTheDocument();
+    expect(screen.getByText("5")).toBeInTheDocument();
+  });
 });

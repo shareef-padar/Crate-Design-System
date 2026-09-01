@@ -41,3 +41,25 @@
   background-color: var(--crate-color-surface);
   box-shadow: var(--crate-shadow-sm);
 }
+
+/* Embedded (no track behind it) — drop the padding/background so the
+   parent's own border reads as the only boundary. */
+.unbordered {
+  padding: 0;
+  background-color: transparent;
+  border-radius: 0;
+}
+
+.optionUnbordered {
+  min-block-size: 2rem;
+  padding-inline: 0.875rem;
+  border: 1px solid transparent;
+}
+
+/* On a plain (unbordered) row, a shadow alone won't read against a white
+   background — fill + border instead, matching the Cargoz reference. */
+.selectedUnbordered {
+  color: var(--crate-color-text-primary);
+  background-color: var(--crate-color-surface-sunken);
+  border-color: var(--crate-color-border);
+}

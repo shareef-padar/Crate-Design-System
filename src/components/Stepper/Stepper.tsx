@@ -14,6 +14,12 @@ export interface StepperProps
   unit?: string;
   /** Accessible label for the stepper group */
   label?: string;
+  /**
+   * Draw the stepper's own border/background. Set false to embed it inside
+   * another bordered container (e.g. alongside a SegmentedControl in one
+   * shared row) without a doubled-up border.
+   */
+  bordered?: boolean;
 }
 
 export function Stepper({
@@ -24,6 +30,7 @@ export function Stepper({
   step = 1,
   unit,
   label,
+  bordered = true,
   className,
   ...rest
 }: StepperProps) {
@@ -34,7 +41,7 @@ export function Stepper({
     <div
       role="group"
       aria-label={label}
-      className={cx(styles.stepper, className)}
+      className={cx(styles.stepper, !bordered && styles.unbordered, className)}
       {...rest}
     >
       <button

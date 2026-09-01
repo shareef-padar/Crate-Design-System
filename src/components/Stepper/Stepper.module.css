@@ -8,6 +8,19 @@
   background-color: var(--crate-color-surface);
 }
 
+/* For embedding inside another bordered container (e.g. a shared row with
+   SegmentedControl) — no border/radius/background of its own. `overflow`
+   must go back to visible: it was only `hidden` to clip corners to the
+   border-radius, and a non-visible overflow zeroes a flex item's automatic
+   minimum size, which let a `flex: 1` wrapper squeeze this below its
+   content's natural width and clip the value/buttons. */
+.unbordered {
+  border: none;
+  border-radius: 0;
+  background-color: transparent;
+  overflow: visible;
+}
+
 .btn {
   display: flex;
   align-items: center;

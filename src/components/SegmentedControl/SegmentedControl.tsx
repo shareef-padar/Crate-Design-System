@@ -13,6 +13,13 @@ export interface SegmentedControlProps {
   onChange: (value: string) => void;
   /** Accessible label for the group. */
   label?: string;
+  /**
+   * Draw the track's own background/padding. Set false to embed the control
+   * inside another bordered container (e.g. alongside a Stepper in one
+   * shared row) — the selected option switches from an elevated white pill
+   * to a filled+bordered one, since there's no track behind it for contrast.
+   */
+  bordered?: boolean;
   className?: string;
 }
 
@@ -21,13 +28,14 @@ export function SegmentedControl({
   value,
   onChange,
   label,
+  bordered = true,
   className,
 }: SegmentedControlProps) {
   return (
     <div
       role="radiogroup"
       aria-label={label}
-      className={cx(styles.track, className)}
+      className={cx(styles.track, !bordered && styles.unbordered, className)}
     >
       {options.map((opt) => {
         const selected = opt.value === value;
@@ -37,7 +45,11 @@ export function SegmentedControl({
             role="radio"
             aria-checked={selected}
             type="button"
-            className={cx(styles.option, selected && styles.selected)}
+            className={cx(
+              styles.option,
+              !bordered && styles.optionUnbordered,
+              selected && (bordered ? styles.selected : styles.selectedUnbordered),
+            )}
             onClick={() => onChange(opt.value)}
           >
             {opt.label}
