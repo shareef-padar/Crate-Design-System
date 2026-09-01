@@ -1,6 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { useState } from "react";
 import { Stepper } from "./Stepper";
+import { SegmentedControl } from "../SegmentedControl";
+import { FormField } from "../FormField";
 
 const meta: Meta<typeof Stepper> = {
   title: "Components/Stepper",
@@ -51,5 +53,54 @@ export const NoUnit: Story = {
   render: () => {
     const [n, setN] = useState(3);
     return <Stepper value={n} onChange={setN} min={0} label="Count" />;
+  },
+};
+
+/**
+ * Warehouse-estimate "Size" control — unit toggle (Sqft/CBM/Pallet) composed
+ * above a Stepper, matching the real Cargoz estimate page. Built from two
+ * existing components rather than a new bespoke one.
+ */
+export const WithUnitToggle: Story = {
+  render: () => {
+    const UNITS = [
+      { value: "sqft", label: "Sqft", step: 100, max: 25000, default: 3000 },
+      { value: "cbm", label: "CBM", step: 5, max: 2000, default: 100 },
+      { value: "pallet", label: "Pallet", step: 1, max: 500, default: 24 },
+    ];
+    const [unit, setUnit] = useState("sqft");
+    const [size, setSize] = useState(3000);
+    const current = UNITS.find((u) => u.value === unit)!;
+
+    const handleUnitChange = (next: string) => {
+      setUnit(next);
+      // Real unit conversion is out of scope for this demo — reset to a
+      // sensible default per unit instead of carrying over a mismatched value.
+      setSize(UNITS.find((u) => u.value === next)!.default);
+    };
+
+    return (
+      <div style={{ maxInlineSize: "26rem" }}>
+        <FormField label="Size">
+          <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
+            <SegmentedControl
+              options={UNITS.map(({ value, label }) => ({ value, label }))}
+              value={unit}
+              onChange={handleUnitChange}
+              label="Unit"
+            />
+            <Stepper
+              value={size}
+              onChange={setSize}
+              min={0}
+              max={current.max}
+              step={current.step}
+              unit={current.label.toLowerCase()}
+              label="Size"
+            />
+          </div>
+        </FormField>
+      </div>
+    );
   },
 };
