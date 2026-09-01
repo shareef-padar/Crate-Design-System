@@ -36,4 +36,19 @@ describe("Accordion", () => {
       "false",
     );
   });
+
+  it("supports the plus-minus indicator and still toggles correctly", async () => {
+    render(
+      <Accordion icon="plus-minus">
+        <AccordionItem value="a" title="Question">
+          Answer text
+        </AccordionItem>
+      </Accordion>,
+    );
+    const trigger = screen.getByRole("button", { name: "Question" });
+    expect(trigger).toHaveAttribute("aria-expanded", "false");
+    await userEvent.click(trigger);
+    expect(trigger).toHaveAttribute("aria-expanded", "true");
+    expect(screen.getByText("Answer text")).toBeInTheDocument();
+  });
 });
