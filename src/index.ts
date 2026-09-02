@@ -41,6 +41,7 @@ export * from "./components/Autocomplete";
 export * from "./components/Alert";
 export * from "./components/Skeleton";
 export * from "./components/Tooltip";
+export * from "./components/Menu";
 export * from "./components/Modal";
 export * from "./components/Tabs";
 export * from "./components/Table";

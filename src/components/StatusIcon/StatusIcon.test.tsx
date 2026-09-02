@@ -18,4 +18,9 @@ describe("StatusIcon", () => {
     const { container } = render(<StatusIcon icon={<svg />} tone="success" size="lg" />);
     expect(await axe(container)).toHaveNoViolations();
   });
+
+  it("renders at the requested shape", () => {
+    const { container } = render(<StatusIcon icon={<svg />} shape="square" />);
+    expect(container.querySelector('[class*="square"]')).toBeInTheDocument();
+  });
 });

@@ -5,6 +5,10 @@
   border-radius: var(--crate-radius-full);
 }
 
+.square {
+  border-radius: var(--crate-radius-lg);
+}
+
 .circle svg {
   inline-size: 55%;
   block-size: 55%;
