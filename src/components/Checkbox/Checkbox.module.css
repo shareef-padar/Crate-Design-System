@@ -43,12 +43,6 @@
 
 .input:checked,
 .input.indeterminate {
-  background-color: var(--crate-color-selected);
-  border-color: var(--crate-color-selected);
-}
-
-.input.accent:checked,
-.input.accent.indeterminate {
   background-color: var(--crate-color-action);
   border-color: var(--crate-color-action);
 }

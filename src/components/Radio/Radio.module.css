@@ -30,7 +30,7 @@
 }
 
 .input:checked {
-  border-color: var(--crate-color-selected);
+  border-color: var(--crate-color-action);
 }
 
 .input:focus-visible {
@@ -45,7 +45,7 @@
   inline-size: 0.5rem;
   block-size: 0.5rem;
   border-radius: var(--crate-radius-full);
-  background-color: var(--crate-color-selected);
+  background-color: var(--crate-color-action);
   transform: translate(-50%, -50%) scale(0);
   transition: transform 0.15s ease;
   pointer-events: none;

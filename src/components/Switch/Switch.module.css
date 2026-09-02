@@ -28,7 +28,7 @@
 }
 
 .input:checked {
-  background-color: var(--crate-color-selected);
+  background-color: var(--crate-color-action);
 }
 
 .input:focus-visible {
