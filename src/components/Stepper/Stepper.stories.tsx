@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Stepper } from "./Stepper";
 import { SegmentedControl } from "../SegmentedControl";
 import { FormField } from "../FormField";
+import { FieldGroup } from "../FieldGroup";
 import { FilterChip } from "../../patterns/FilterChip";
 import { Stack } from "../../primitives/Stack";
 import { Inline } from "../../primitives/Inline";
@@ -112,10 +113,11 @@ export const WithUnitToggle: Story = {
  * The other Cargoz layout for the same "Size" control: stepper and unit
  * toggle share ONE row and ONE border, split by a hairline divider, instead
  * of stacking. Both `Stepper` and `SegmentedControl` support `bordered={false}`
- * for exactly this — dropping their own outer chrome so a shared wrapper can
- * own the single border. Prefer the stacked `WithUnitToggle` layout by default
- * (more robust at narrow widths and with longer unit labels); reach for this
- * one when the design specifically calls for the tighter, single-row look.
+ * for exactly this — dropping their own outer chrome so `FieldGroup` can own
+ * the single shared border and divider. Prefer the stacked `WithUnitToggle`
+ * layout by default (more robust at narrow widths and with longer unit
+ * labels); reach for this one when the design specifically calls for the
+ * tighter, single-row look.
  */
 export const WithInlineUnitToggle: Story = {
   render: () => {
@@ -136,18 +138,7 @@ export const WithInlineUnitToggle: Story = {
     return (
       <div style={{ maxInlineSize: "36rem" }}>
         <FormField label="Size">
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "0.5rem",
-              minBlockSize: "3rem",
-              border: "1.5px solid var(--crate-color-border)",
-              borderRadius: "var(--crate-radius-md)",
-              backgroundColor: "var(--crate-color-surface)",
-              paddingInlineEnd: "0.5rem",
-            }}
-          >
+          <FieldGroup>
             <Stepper
               value={size}
               onChange={setSize}
@@ -159,23 +150,16 @@ export const WithInlineUnitToggle: Story = {
               bordered={false}
               style={{ flex: 1 }}
             />
-            <span
-              aria-hidden
-              style={{
-                inlineSize: "1px",
-                blockSize: "1.5rem",
-                backgroundColor: "var(--crate-color-border)",
-                flexShrink: 0,
-              }}
-            />
-            <SegmentedControl
-              options={UNITS.map(({ value, label }) => ({ value, label }))}
-              value={unit}
-              onChange={handleUnitChange}
-              label="Unit"
-              bordered={false}
-            />
-          </div>
+            <span style={{ display: "flex", alignItems: "center", paddingInlineEnd: "0.5rem" }}>
+              <SegmentedControl
+                options={UNITS.map(({ value, label }) => ({ value, label }))}
+                value={unit}
+                onChange={handleUnitChange}
+                label="Unit"
+                bordered={false}
+              />
+            </span>
+          </FieldGroup>
         </FormField>
       </div>
     );

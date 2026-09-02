@@ -1,0 +1,65 @@
+.segment {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 0.125rem;
+  min-inline-size: 0;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.caption {
+  font-family: var(--crate-font-family-body);
+  font-size: var(--crate-font-size-caption);
+  color: var(--crate-color-text-muted);
+}
+
+.valueRow {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.control {
+  min-inline-size: 0;
+  padding: 0;
+  font-family: var(--crate-font-family-heading);
+  font-weight: var(--crate-font-weight-semibold);
+  font-size: var(--crate-font-size-body);
+  color: var(--crate-color-text-primary);
+  background: none;
+  border: none;
+  cursor: inherit;
+}
+
+select.control {
+  appearance: none;
+}
+
+input.control {
+  inline-size: 100%;
+}
+
+/* Hide the native number spinner — a bold inline value reads cleaner without it. */
+input.control[type="number"]::-webkit-inner-spin-button,
+input.control[type="number"]::-webkit-outer-spin-button {
+  appearance: none;
+  margin: 0;
+}
+
+input.control[type="number"] {
+  appearance: textfield;
+}
+
+.control:focus-visible {
+  outline: 2px solid var(--crate-color-focus-ring);
+  outline-offset: 2px;
+  border-radius: var(--crate-radius-sm);
+}
+
+.chevron {
+  flex-shrink: 0;
+  inline-size: 1rem;
+  block-size: 1rem;
+  color: var(--crate-color-text-muted);
+}

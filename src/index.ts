@@ -49,6 +49,8 @@ export * from "./components/StatusIcon";
 
 // Form controls
 export * from "./components/FormField";
+export * from "./components/FieldGroup";
+export * from "./components/CompactField";
 export * from "./components/Input";
 export * from "./components/Textarea";
 export * from "./components/Select";

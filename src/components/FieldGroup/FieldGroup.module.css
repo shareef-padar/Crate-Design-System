@@ -1,0 +1,19 @@
+/*
+ * Border + divider only — deliberately doesn't force flex:1 on every child.
+ * Some compositions want equal-width segments (two CompactFields); others
+ * want one segment to grow and another to stay at its natural width (a
+ * Stepper next to a SegmentedControl). Let each child opt into its own
+ * sizing instead of guessing one policy for both cases.
+ */
+.group {
+  display: flex;
+  align-items: center;
+  background-color: var(--crate-color-surface);
+  border: 1px solid var(--crate-color-border);
+  border-radius: var(--crate-radius-md);
+  overflow: hidden;
+}
+
+.group > * + * {
+  border-inline-start: 1px solid var(--crate-color-border);
+}
