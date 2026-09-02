@@ -1,0 +1,26 @@
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-inline-size: 0;
+}
+
+.title {
+  font-family: var(--crate-font-family-heading);
+  font-weight: var(--crate-font-weight-semibold);
+  font-size: var(--crate-font-size-body-lg);
+  color: var(--crate-color-text-primary);
+}
+
+.description {
+  font-family: var(--crate-font-family-body);
+  font-size: var(--crate-font-size-body-sm);
+  color: var(--crate-color-text-muted);
+}
