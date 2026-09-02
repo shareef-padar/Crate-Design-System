@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { type CSSProperties } from "react";
 import { FormField } from "./FormField";
 import { Input, InputSelect } from "../Input";
 import { Textarea } from "../Textarea";
@@ -35,6 +36,63 @@ export const TextInputs: Story = {
       <FormField label="Reference code" disabled>
         <Input placeholder="Optional" />
       </FormField>
+    </Stack>
+  ),
+};
+
+const stateCaptionStyle: CSSProperties = {
+  fontFamily: "var(--crate-font-family-body)",
+  fontSize: "var(--crate-font-size-caption)",
+  color: "var(--crate-color-text-muted)",
+  margin: 0,
+};
+
+/**
+ * The six field states from the Cargoz validation-state reference (Figma
+ * node 6705:64593): initial, hover, focus, valid, disabled, error. Initial/
+ * hover/focus/disabled/error were already covered by field.module.css —
+ * `valid` (the success checkmark) was the one real gap, now Input's `valid`
+ * prop.
+ */
+export const FieldStates: Story = {
+  render: () => (
+    <Stack gap={5} style={{ maxInlineSize: "20rem" }}>
+      <Stack gap={1}>
+        <p style={stateCaptionStyle}>Initial</p>
+        <FormField label="Your Name" required>
+          <Input placeholder="Your name" />
+        </FormField>
+      </Stack>
+      <Stack gap={1}>
+        <p style={stateCaptionStyle}>Hover (try it — border darkens)</p>
+        <FormField label="Your Name" required>
+          <Input placeholder="Your name" />
+        </FormField>
+      </Stack>
+      <Stack gap={1}>
+        <p style={stateCaptionStyle}>Focus / active typing</p>
+        <FormField label="Your Name" required>
+          <Input placeholder="Your name" autoFocus />
+        </FormField>
+      </Stack>
+      <Stack gap={1}>
+        <p style={stateCaptionStyle}>Valid</p>
+        <FormField label="Your Name" required>
+          <Input defaultValue="John Jacobs" valid />
+        </FormField>
+      </Stack>
+      <Stack gap={1}>
+        <p style={stateCaptionStyle}>Disabled</p>
+        <FormField label="Your Name" required disabled>
+          <Input defaultValue="John Jacobs" />
+        </FormField>
+      </Stack>
+      <Stack gap={1}>
+        <p style={stateCaptionStyle}>Error</p>
+        <FormField label="Your Name" required error="Enter your full name to continue">
+          <Input placeholder="Your name" />
+        </FormField>
+      </Stack>
     </Stack>
   ),
 };

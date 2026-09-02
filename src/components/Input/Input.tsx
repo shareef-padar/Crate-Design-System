@@ -5,6 +5,7 @@ import {
   type ComponentPropsWithoutRef,
   type ReactNode,
 } from "react";
+import { CheckCircle } from "@phosphor-icons/react";
 import { cx } from "../../utils/cx";
 import { useFieldControl } from "../FormField/FieldContext";
 import { InputSelect } from "./InputSelect";
@@ -31,6 +32,11 @@ export interface InputProps
   suffix?: ReactNode;
   /** Adornment style. "inline" (default) is subtle; "addon" is a filled segment. */
   adornment?: AdornmentVariant;
+  /**
+   * Show a success checkmark suffix (e.g. once client-side validation
+   * passes). Ignored if `suffix` is also given — `suffix` wins.
+   */
+  valid?: boolean;
 }
 
 /** Single-line text input. Inherits id / aria / invalid state from a FormField.
@@ -45,15 +51,18 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
     className,
     prefix,
     suffix,
+    valid = false,
     adornment = "inline",
     ...rest
   },
   ref,
 ) {
   const fieldProps = useFieldControl({ disabled, required, id });
+  const resolvedSuffix =
+    suffix ?? (valid ? <CheckCircle weight="fill" color="var(--crate-color-success)" /> : undefined);
 
   // No adornments → plain input, unchanged behaviour.
-  if (!prefix && !suffix) {
+  if (!prefix && !resolvedSuffix) {
     return (
       <input
         ref={ref}
@@ -100,7 +109,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
         {...fieldProps}
         {...rest}
       />
-      {renderAdornment(suffix, "suffix")}
+      {renderAdornment(resolvedSuffix, "suffix")}
     </div>
   );
 });

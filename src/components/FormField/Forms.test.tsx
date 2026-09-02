@@ -95,6 +95,25 @@ describe("Input adornments", () => {
     );
     expect(await axe(container)).toHaveNoViolations();
   });
+
+  it("shows a success checkmark suffix when valid", () => {
+    const { container } = render(
+      <FormField label="Your Name">
+        <Input defaultValue="John Jacobs" valid />
+      </FormField>,
+    );
+    expect(container.querySelector("svg")).toBeInTheDocument();
+    expect(screen.getByLabelText("Your Name")).toHaveValue("John Jacobs");
+  });
+
+  it("lets an explicit suffix win over valid", () => {
+    render(
+      <FormField label="Your Name">
+        <Input defaultValue="John Jacobs" valid suffix="custom" />
+      </FormField>,
+    );
+    expect(screen.getByText("custom")).toBeInTheDocument();
+  });
 });
 
 describe("Input dropdown adornments", () => {
