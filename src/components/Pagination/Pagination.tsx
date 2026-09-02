@@ -1,4 +1,4 @@
-import { CaretLeft, CaretRight } from "@phosphor-icons/react";
+import { CaretLeft, CaretRight, DotsThree } from "@phosphor-icons/react";
 import { cx } from "../../utils/cx";
 import styles from "./Pagination.module.css";
 
@@ -53,7 +53,7 @@ export function Pagination({
       {items.map((it, i) =>
         it === "…" ? (
           <span key={`gap-${i}`} className={styles.ellipsis} aria-hidden>
-            …
+            <DotsThree weight="bold" />
           </span>
         ) : (
           <button

@@ -1,7 +1,25 @@
+/*
+ * One connected strip, not separate spaced-out buttons — matches the real
+ * Cargoz reference (Figma node 3299:35856). Only the strip's outer corners
+ * are rounded; a hairline divides each cell from the next.
+ */
 .nav {
   display: inline-flex;
-  align-items: center;
-  gap: 0.25rem;
+  align-items: stretch;
+  border: 1px solid var(--crate-color-border);
+  border-radius: var(--crate-radius-md);
+  overflow: hidden;
+  background-color: var(--crate-color-surface);
+}
+
+.page,
+.arrow,
+.ellipsis {
+  border-inline-end: 1px solid var(--crate-color-border);
+}
+
+.nav > :last-child {
+  border-inline-end: none;
 }
 
 .page,
@@ -13,12 +31,12 @@
   block-size: 2.25rem;
   padding-inline: 0.5rem;
   font-family: var(--crate-font-family-heading);
-  font-weight: var(--crate-font-weight-medium);
+  font-weight: var(--crate-font-weight-semibold);
   font-size: var(--crate-font-size-body-sm);
-  color: var(--crate-color-text-secondary);
+  color: var(--crate-color-text-muted);
   background: none;
-  border: 1px solid transparent;
-  border-radius: var(--crate-radius-md);
+  border-block: none;
+  border-inline-start: none;
   cursor: pointer;
   transition:
     background-color 0.15s ease,
@@ -34,7 +52,11 @@
 .page:focus-visible,
 .arrow:focus-visible {
   outline: 2px solid var(--crate-color-focus-ring);
-  outline-offset: 2px;
+  outline-offset: -2px;
+}
+
+.arrow {
+  color: var(--crate-color-text-secondary);
 }
 
 .arrow:disabled {
@@ -42,17 +64,24 @@
   cursor: not-allowed;
 }
 
-/* Current page — accent fill for wayfinding ("you are here"). */
+/*
+ * Current page — neutral fill for wayfinding ("you are here"), matching
+ * the real Cargoz reference. NOT teal: an earlier general recommendation
+ * had this as a teal wayfinding exception, but the actual product
+ * reference shows plain neutral, and ground truth wins. See the
+ * neutral-active-focus-states memory note.
+ */
 .current,
 .current:hover {
-  color: var(--crate-color-text-on-action);
-  background-color: var(--crate-color-action);
+  color: var(--crate-color-text-primary);
+  background-color: var(--crate-color-surface-sunken);
 }
 
 .ellipsis {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-inline-size: 2rem;
+  min-inline-size: 2.25rem;
+  block-size: 2.25rem;
   color: var(--crate-color-text-muted);
 }
