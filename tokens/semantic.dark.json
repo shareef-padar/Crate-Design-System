@@ -28,6 +28,7 @@
 
     "accent-secondary": { "$value": "{secondary.400}" },
     "accent-secondary-subtle": { "$value": "{secondary.900}" },
+    "accent-secondary-text": { "$value": "{secondary.300}" },
 
     "focus-ring": { "$value": "{text.200}" },
     "focus-ring-subtle": { "$value": "{text.700}" },

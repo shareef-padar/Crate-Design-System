@@ -34,4 +34,39 @@ describe("Table", () => {
     const { container } = render(<Example />);
     expect(await axe(container)).toHaveNoViolations();
   });
+
+  it("marks highlighted cells with a distinct class", () => {
+    const { container } = render(
+      <Table>
+        <Thead>
+          <Tr>
+            <Th>Plan</Th>
+            <Th highlighted>Cargoz</Th>
+          </Tr>
+        </Thead>
+        <Tbody>
+          <Tr>
+            <Td>Fees</Td>
+            <Td highlighted>None</Td>
+          </Tr>
+        </Tbody>
+      </Table>,
+    );
+    const highlighted = container.querySelectorAll('[class*="highlighted"]');
+    expect(highlighted).toHaveLength(2);
+  });
+
+  it("applies a zebra class when zebra is set", () => {
+    const { container } = render(
+      <Table zebra>
+        <Tbody>
+          <Tr>
+            <Td>Water Sprinkler</Td>
+            <Td>Included</Td>
+          </Tr>
+        </Tbody>
+      </Table>,
+    );
+    expect(container.querySelector('table[class*="zebra"]')).toBeInTheDocument();
+  });
 });

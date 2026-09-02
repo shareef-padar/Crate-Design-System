@@ -214,6 +214,7 @@
   --crate-color-action-border: var(--crate-primary-600);
   --crate-color-accent-secondary: var(--crate-secondary-600);
   --crate-color-accent-secondary-subtle: var(--crate-secondary-50);
+  --crate-color-accent-secondary-text: var(--crate-secondary-700);
   --crate-color-focus-ring: var(--crate-text-900);
   --crate-color-focus-ring-subtle: var(--crate-text-100);
   --crate-color-selected: var(--crate-text-900);
@@ -264,6 +265,7 @@
   --crate-color-action-border: var(--crate-primary-400);
   --crate-color-accent-secondary: var(--crate-secondary-400);
   --crate-color-accent-secondary-subtle: var(--crate-secondary-900);
+  --crate-color-accent-secondary-text: var(--crate-secondary-300);
   --crate-color-focus-ring: var(--crate-text-200);
   --crate-color-focus-ring-subtle: var(--crate-text-700);
   --crate-color-selected: var(--crate-text-100);

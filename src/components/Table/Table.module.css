@@ -45,14 +45,49 @@
   border-block-end: none;
 }
 
-.table tbody tr:hover {
-  background-color: var(--crate-color-surface-hover);
-}
-
 .center {
   text-align: center;
 }
 
 .end {
   text-align: end;
+}
+
+/* Emphasized column, e.g. "recommended" in a comparison table. */
+.highlighted {
+  background-color: var(--crate-color-accent-secondary-subtle);
+  color: var(--crate-color-accent-secondary-text);
+}
+
+/*
+ * `.table thead th` (above) sets its own background/color at higher
+ * specificity than plain `.highlighted` — without this override, a
+ * highlighted header cell silently falls back to the ordinary header
+ * bg/text instead of the accent tint.
+ */
+.table thead th.highlighted {
+  background-color: var(--crate-color-accent-secondary-subtle);
+  color: var(--crate-color-accent-secondary-text);
+}
+
+/* Alternating rows instead of border-separated ones — no header, no lines. */
+.zebra tbody tr {
+  border-block-end: none;
+}
+
+.zebra tbody tr:nth-child(odd) {
+  background-color: var(--crate-color-surface-sunken);
+}
+
+.zebra tbody tr:nth-child(even) {
+  background-color: var(--crate-color-surface);
+}
+
+/*
+ * Comes after the zebra rules on purpose: equal specificity to
+ * `.zebra tbody tr:nth-child()`, and source order decides ties — hover
+ * needs to win on zebra rows too, not just plain bordered ones.
+ */
+.table tbody tr:hover {
+  background-color: var(--crate-color-surface-hover);
 }
