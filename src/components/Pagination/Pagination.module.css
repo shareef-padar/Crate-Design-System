@@ -1,25 +1,15 @@
 /*
- * One connected strip, not separate spaced-out buttons — matches the real
- * Cargoz reference (Figma node 3299:35856). Only the strip's outer corners
- * are rounded; a hairline divides each cell from the next.
+ * Separate, borderless buttons — no outer box, no dividers between cells.
+ * Corrected from an earlier misreading of the Figma export: individual
+ * buttons there have no `border` at all, only a background (white, or
+ * text-50 for the current page) and a `mr-[-1px]` that's a Figma-authoring
+ * artifact for avoiding a hairline gap between same-colored siblings, not
+ * a real visible divider.
  */
 .nav {
   display: inline-flex;
-  align-items: stretch;
-  border: 1px solid var(--crate-color-border);
-  border-radius: var(--crate-radius-md);
-  overflow: hidden;
-  background-color: var(--crate-color-surface);
-}
-
-.page,
-.arrow,
-.ellipsis {
-  border-inline-end: 1px solid var(--crate-color-border);
-}
-
-.nav > :last-child {
-  border-inline-end: none;
+  align-items: center;
+  gap: 0.25rem;
 }
 
 .page,
@@ -35,8 +25,8 @@
   font-size: var(--crate-font-size-body-sm);
   color: var(--crate-color-text-muted);
   background: none;
-  border-block: none;
-  border-inline-start: none;
+  border: none;
+  border-radius: var(--crate-radius-md);
   cursor: pointer;
   transition:
     background-color 0.15s ease,
@@ -52,7 +42,7 @@
 .page:focus-visible,
 .arrow:focus-visible {
   outline: 2px solid var(--crate-color-focus-ring);
-  outline-offset: -2px;
+  outline-offset: 2px;
 }
 
 .arrow {
@@ -65,16 +55,15 @@
 }
 
 /*
- * Current page — neutral fill for wayfinding ("you are here"), matching
- * the real Cargoz reference. NOT teal: an earlier general recommendation
- * had this as a teal wayfinding exception, but the actual product
- * reference shows plain neutral, and ground truth wins. See the
- * neutral-active-focus-states memory note.
+ * Current page — its own light, softly-shadowed chip, floating among the
+ * plain borderless buttons around it. Neutral, matching the real Cargoz
+ * reference (not teal — see the neutral-active-focus-states memory note).
  */
 .current,
 .current:hover {
   color: var(--crate-color-text-primary);
   background-color: var(--crate-color-surface-sunken);
+  box-shadow: var(--crate-shadow-sm);
 }
 
 .ellipsis {
