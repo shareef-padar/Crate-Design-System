@@ -69,6 +69,7 @@ export * from "./patterns/RatingStars";
 export * from "./patterns/TrustBadge";
 export * from "./patterns/ContactCTA";
 export * from "./patterns/ListingCard";
+export * from "./patterns/ComparisonCard";
 export * from "./patterns/SearchFilterBar";
 export * from "./patterns/FilterChip";
 export * from "./patterns/StatusPill";

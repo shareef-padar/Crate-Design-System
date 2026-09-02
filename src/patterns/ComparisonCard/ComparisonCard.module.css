@@ -1,0 +1,104 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  min-inline-size: 0;
+  background-color: var(--crate-color-surface);
+  border: 1px solid var(--crate-color-border);
+  border-radius: var(--crate-radius-md);
+  overflow: hidden;
+}
+
+.header {
+  padding: 0.625rem;
+  font-family: var(--crate-font-family-heading);
+  font-weight: var(--crate-font-weight-semibold);
+  font-size: var(--crate-font-size-body-sm);
+  color: var(--crate-color-text-primary);
+  text-align: center;
+  background-color: var(--crate-color-surface-sunken);
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  border-block-end: 1px solid var(--crate-color-border);
+}
+
+.section:last-child {
+  border-block-end: none;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.375rem 0.625rem;
+}
+
+.sectionLabel {
+  flex: 1;
+  min-inline-size: 0;
+  font-family: var(--crate-font-family-heading);
+  font-weight: var(--crate-font-weight-semibold);
+  font-size: var(--crate-font-size-caption);
+  letter-spacing: 0.04em;
+  color: var(--crate-color-accent-secondary-text);
+  text-transform: uppercase;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.4375rem 0.625rem;
+  background-color: var(--crate-color-surface);
+}
+
+.rowAlt {
+  background-color: var(--crate-color-surface-sunken);
+}
+
+.rowLabel {
+  font-family: var(--crate-font-family-body);
+  font-size: var(--crate-font-size-caption);
+  color: var(--crate-color-text-primary);
+  white-space: nowrap;
+}
+
+.rowValue {
+  flex-shrink: 0;
+  font-family: var(--crate-font-family-body);
+  font-size: var(--crate-font-size-caption);
+  color: var(--crate-color-text-primary);
+  white-space: nowrap;
+}
+
+.rowMuted .rowLabel,
+.rowMuted .rowValue {
+  color: var(--crate-color-text-disabled);
+}
+
+.rowIcon {
+  display: inline-flex;
+  flex-shrink: 0;
+  inline-size: 0.75rem;
+  block-size: 0.75rem;
+}
+
+.rowIcon svg {
+  inline-size: 100%;
+  block-size: 100%;
+}
+
+.stateYes {
+  color: var(--crate-color-success);
+}
+
+.stateNo {
+  color: var(--crate-color-danger);
+}
+
+.statePartial {
+  color: var(--crate-color-text-muted);
+}
