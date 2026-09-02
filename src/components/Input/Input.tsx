@@ -33,10 +33,13 @@ export interface InputProps
   /** Adornment style. "inline" (default) is subtle; "addon" is a filled segment. */
   adornment?: AdornmentVariant;
   /**
-   * Show a success checkmark suffix (e.g. once client-side validation
-   * passes). Ignored if `suffix` is also given — `suffix` wins.
+   * Show a success checkmark suffix — for a value confirmed by the backend,
+   * e.g. a phone number after OTP confirmation, or an email already on
+   * file. NOT for client-side format validation ("looks like an email") —
+   * that's what `error` on FormField is for. Ignored if `suffix` is also
+   * given — `suffix` wins.
    */
-  valid?: boolean;
+  verified?: boolean;
 }
 
 /** Single-line text input. Inherits id / aria / invalid state from a FormField.
@@ -51,7 +54,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
     className,
     prefix,
     suffix,
-    valid = false,
+    verified = false,
     adornment = "inline",
     ...rest
   },
@@ -59,7 +62,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
 ) {
   const fieldProps = useFieldControl({ disabled, required, id });
   const resolvedSuffix =
-    suffix ?? (valid ? <CheckCircle weight="fill" color="var(--crate-color-success)" /> : undefined);
+    suffix ?? (verified ? <CheckCircle weight="fill" color="var(--crate-color-success)" /> : undefined);
 
   // No adornments → plain input, unchanged behaviour.
   if (!prefix && !resolvedSuffix) {

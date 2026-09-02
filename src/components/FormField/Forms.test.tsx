@@ -96,20 +96,20 @@ describe("Input adornments", () => {
     expect(await axe(container)).toHaveNoViolations();
   });
 
-  it("shows a success checkmark suffix when valid", () => {
+  it("shows a success checkmark suffix when verified", () => {
     const { container } = render(
-      <FormField label="Your Name">
-        <Input defaultValue="John Jacobs" valid />
+      <FormField label="Phone number">
+        <Input type="tel" defaultValue="+971 50 123 4567" verified />
       </FormField>,
     );
     expect(container.querySelector("svg")).toBeInTheDocument();
-    expect(screen.getByLabelText("Your Name")).toHaveValue("John Jacobs");
+    expect(screen.getByLabelText("Phone number")).toHaveValue("+971 50 123 4567");
   });
 
-  it("lets an explicit suffix win over valid", () => {
+  it("lets an explicit suffix win over verified", () => {
     render(
-      <FormField label="Your Name">
-        <Input defaultValue="John Jacobs" valid suffix="custom" />
+      <FormField label="Phone number">
+        <Input type="tel" defaultValue="+971 50 123 4567" verified suffix="custom" />
       </FormField>,
     );
     expect(screen.getByText("custom")).toBeInTheDocument();

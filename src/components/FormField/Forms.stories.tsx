@@ -49,10 +49,15 @@ const stateCaptionStyle: CSSProperties = {
 
 /**
  * The six field states from the Cargoz validation-state reference (Figma
- * node 6705:64593): initial, hover, focus, valid, disabled, error. Initial/
- * hover/focus/disabled/error were already covered by field.module.css —
- * `valid` (the success checkmark) was the one real gap, now Input's `valid`
- * prop.
+ * node 6705:64593): initial, hover, focus, verified, disabled, error.
+ * Initial/hover/focus/disabled/error were already covered by
+ * field.module.css — the checkmark state was the one real gap, now Input's
+ * `verified` prop.
+ *
+ * `verified` is narrower than the reference's generic "valid" label: it's
+ * for a value the BACKEND has confirmed (OTP-verified phone, an email
+ * already on file) — not client-side format checking ("looks like an
+ * email"), which belongs on FormField's `error` instead.
  */
 export const FieldStates: Story = {
   render: () => (
@@ -76,9 +81,9 @@ export const FieldStates: Story = {
         </FormField>
       </Stack>
       <Stack gap={1}>
-        <p style={stateCaptionStyle}>Valid</p>
-        <FormField label="Your Name" required>
-          <Input defaultValue="John Jacobs" valid />
+        <p style={stateCaptionStyle}>Verified — confirmed by the backend, e.g. after OTP</p>
+        <FormField label="Phone number" required>
+          <Input type="tel" defaultValue="+971 50 123 4567" verified />
         </FormField>
       </Stack>
       <Stack gap={1}>
