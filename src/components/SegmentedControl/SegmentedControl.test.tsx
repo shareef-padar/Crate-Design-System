@@ -37,4 +37,12 @@ describe("SegmentedControl", () => {
     await userEvent.click(screen.getByRole("radio", { name: "CBM" }));
     expect(onChange).toHaveBeenCalledWith("cbm");
   });
+
+  it("still functions with variant=card", async () => {
+    const onChange = vi.fn();
+    render(<SegmentedControl variant="card" options={OPTIONS} value="sqft" onChange={onChange} />);
+    expect(screen.getByRole("radio", { name: "Sqft" })).toHaveAttribute("aria-checked", "true");
+    await userEvent.click(screen.getByRole("radio", { name: "Pallet" }));
+    expect(onChange).toHaveBeenCalledWith("pallet");
+  });
 });

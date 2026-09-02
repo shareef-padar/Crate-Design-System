@@ -63,3 +63,25 @@
   background-color: var(--crate-color-surface-sunken);
   border-color: var(--crate-color-border);
 }
+
+/*
+ * "card" variant — a bordered white rounded-rect track (not a full pill),
+ * selected option a plain gray fill (no shadow). From the "By Cargo / By
+ * Space" reference (Figma node 3299:33846).
+ */
+.card {
+  background-color: var(--crate-color-surface);
+  border: 1px solid var(--crate-color-border);
+  border-radius: var(--crate-radius-md);
+  box-shadow: var(--crate-shadow-sm);
+}
+
+.cardOption {
+  border-radius: var(--crate-radius-sm);
+}
+
+.cardSelected {
+  color: var(--crate-color-text-primary);
+  background-color: var(--crate-color-surface-sunken);
+  box-shadow: none;
+}

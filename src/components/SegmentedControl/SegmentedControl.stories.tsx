@@ -46,3 +46,26 @@ export const TwoOptions: Story = {
     );
   },
 };
+
+/**
+ * "By Cargo / By Space" toggle (Figma node 3299:33846) — a bordered white
+ * rounded-rect track instead of a full pill, gray-fill selected option
+ * instead of an elevated white chip. Same component, `variant="card"`.
+ */
+export const CardVariant: Story = {
+  render: () => {
+    const [mode, setMode] = useState("space");
+    return (
+      <SegmentedControl
+        variant="card"
+        options={[
+          { value: "cargo", label: "By Cargo" },
+          { value: "space", label: "By Space" },
+        ]}
+        value={mode}
+        onChange={setMode}
+        label="Estimate by"
+      />
+    );
+  },
+};
