@@ -16,7 +16,7 @@
   font-family: var(--crate-font-family-heading);
   font-weight: var(--crate-font-weight-medium);
   font-size: var(--crate-font-size-body);
-  color: var(--crate-color-text-secondary);
+  color: var(--crate-color-text-muted);
   background: none;
   border: none;
   cursor: pointer;
@@ -38,9 +38,28 @@
   outline-offset: -2px;
 }
 
-/* Active tab — neutral label, accent underline for wayfinding ("where am I"). */
+/*
+ * Active tab — teal label + underline. Confirmed against the real Cargoz
+ * reference (Figma node 504:494), which had gone unverified until now: the
+ * active tab there uses a teal gradient on the label text, not just the
+ * underline. Simplified to our flat --crate-color-action instead of
+ * replicating the literal 2-stop gradient — gradient text (bg-clip-text +
+ * transparent color) is a fragile technique with no other precedent in
+ * Crate, for a visual difference that's barely perceptible at 14px.
+ */
 .tabSelected {
-  color: var(--crate-color-text-primary);
+  color: var(--crate-color-action);
+}
+
+/*
+ * `.tab:hover:not(:disabled)` above has higher specificity than plain
+ * `.tabSelected` (3 selector parts vs 1), so without this, hovering the
+ * already-active tab would flicker it back to neutral. Matches
+ * `.tab:hover:not(:disabled)`'s specificity exactly; wins on source order
+ * since it comes later in the file.
+ */
+.tabSelected:hover:not(:disabled) {
+  color: var(--crate-color-action);
 }
 
 .tabSelected::after {
